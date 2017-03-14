@@ -5,12 +5,12 @@ namespace OnLineShop.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(OnLineShop.Data.OnLineShopDbContext context)
