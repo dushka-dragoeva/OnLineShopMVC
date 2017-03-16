@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using OnLineShop.Web.Models;
+using OnLineShop.Data.Models;
+using OnLineShop.Data;
 
 namespace OnLineShop.Web
 {
