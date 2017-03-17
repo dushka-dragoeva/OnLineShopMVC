@@ -92,6 +92,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Web\OnLineShop.Web\OnLineShop.Web.csproj">
+      <Project>{92f8299e-f122-440a-9dd5-8aead055366b}</Project>
+      <Name>OnLineShop.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
