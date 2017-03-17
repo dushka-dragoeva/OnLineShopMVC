@@ -272,15 +272,15 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnLineShop.Data.Models\OnLineShop.Data.Models.csproj">
+    <ProjectReference Include="..\Data\OnLineShop.Data.Models\OnLineShop.Data.Models.csproj">
       <Project>{056E42D9-7AB6-4346-92AF-167BE6F540B9}</Project>
       <Name>OnLineShop.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnLineShop.Data.Services\OnLineShop.Data.Services.csproj">
+    <ProjectReference Include="..\Services\OnLineShop.Data.Services\OnLineShop.Data.Services.csproj">
       <Project>{510ecbd5-3f85-45a0-8476-73e106b2a1cb}</Project>
       <Name>OnLineShop.Data.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnLineShop.Data\OnLineShop.Data.csproj">
+    <ProjectReference Include="..\Data\OnLineShop.Data\OnLineShop.Data.csproj">
       <Project>{23c3bd06-f39e-409b-9f23-c8b3bdc0957e}</Project>
       <Name>OnLineShop.Data</Name>
     </ProjectReference>
