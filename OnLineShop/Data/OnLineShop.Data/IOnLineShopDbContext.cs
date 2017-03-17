@@ -13,9 +13,7 @@ namespace OnLineShop.Data
 
         IDbSet<Brand> Brands { get; set; }
 
-        IDbSet<Address> DeliveryAddress { get; set; }
-
-        IDbSet<Photo> Photos { get; set; }  // Could be only string
+        IDbSet<ContactInfo> ContactInfos { get; set; }
 
         IDbSet<Size> Sizes { get; set; }
 
@@ -25,7 +23,7 @@ namespace OnLineShop.Data
 
         IDbSet<Product> Products { get; set; }
 
-        IDbSet<CartItem> ShoppingCartItems { get; set; }
+        //  IDbSet<CartItem> ShoppingCartItems { get; set; }
 
         IDbSet<OrderDetail> OrderDetail { get; set; }
 

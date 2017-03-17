@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +7,7 @@ using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
-    public class Brand : IDbModel, INamable
+    public class Brand : IDbModel
     {
         private ICollection<Product> products;
 
@@ -22,9 +21,9 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(2)]
-        [MaxLength(20)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage =ValidationConstants.ShortFieldError)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage =ValidationConstants.LongFieldError)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage =ValidationConstants.NotAllowedSymbolsError)]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
@@ -33,9 +32,9 @@ namespace OnLineShop.Data.Models
         [RegularExpression(ValidationConstants.DescriptionRegex)]
         public string Description { get; set; }
 
-        [MinLength(5)]
-        [MaxLength(200)]
-        [RegularExpression(ValidationConstants.DescriptionRegex)]
+        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage =ValidationConstants.ShortUrlError)]
+        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage =ValidationConstants.LongUrlError)]
+
         public string ImageUrl { get; set; }
 
         public virtual ICollection<Product> Products

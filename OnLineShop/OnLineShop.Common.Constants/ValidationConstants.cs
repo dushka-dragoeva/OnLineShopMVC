@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnLineShop.Common.Constants
+﻿namespace OnLineShop.Common.Constants
 {
     public class ValidationConstants
     {
@@ -27,15 +21,35 @@ namespace OnLineShop.Common.Constants
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 500;
 
+        public const int AddressMinLength = 2;
+        public const int AddressMaxLength = 100;
+
+        public const int UrlLengthMinLength = 6;
+        public const int UrlLengthMaxValue = 300;
+
+        public const int QuantityMinValue = 1;
+        public const int QuantitiMaxValue = 10000000;
+
+        public const string PriceMinValue = "0.00";
+        public const string PriceMaxValue = "999999999.99";
+
         public const string ShortUrlError = "Линка към снимката трябва да бъде поне 6 символа";
         public const string LongUrlError = "Линка към снимката може да бъде максимум  символа";
 
-        public const string ShortNameError = "Името трябва да бъде поне 1 символа";
-        public const string LongNameError = "Името може да бъде максимум 40 символа";
+        public const string ShortFieldError = "Полето трябва да бъде поне 1 символа";
+        public const string LongFieldError = "Полето може да бъде максимум 40 символа";
 
         public const string ShortDescriptionError = "Описанието трябва да бъде поне 10 символа";
         public const string LongDescriptionError = "Описанието може да бъде максимум 500 символа";
 
-        public const string NotAllowedSymbolsError = "Неразрешени символи";
+        public const string NotAllowedSymbolsError = "Полето съдържа неразрешени символи";
+
+        public const string QuаntityOutOfRangeError = "Невалидно количество, диапазон 1 000, 10 0000 000.";
+        public const string PriceOutOfRangeError = "Невалиднa cenцена, диапазон 0,01, 999 999 999.99.";
+
+
+
+
+
     }
 }

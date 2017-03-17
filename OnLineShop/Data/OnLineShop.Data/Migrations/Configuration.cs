@@ -5,7 +5,7 @@ namespace OnLineShop.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace OnLineShop.Data.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(OnLineShop.Data.OnLineShopDbContext context)
+        protected override void Seed(OnLineShopDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -7,7 +7,7 @@ using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
-    public class Category: IDbModel, INamable
+    public class Category : IDbModel
     {
         private ICollection<Product> products;
         private ICollection<Category> subCategories;
@@ -19,16 +19,16 @@ namespace OnLineShop.Data.Models
         }
 
         [Key]
-    
-        public  int Id { get; set; }
+
+        public int Id { get; set; }
 
         public bool IsDeleted { get; set; }
-      
+
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(2)]
-        [MaxLength(20)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongFieldError)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
         public string Name { get; set; }
 
         public virtual ICollection<Product> Products

@@ -1,14 +1,12 @@
-﻿using OnLineShop.Data.Models.Contracts;
-using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using OnLineShop.Common.Constants;
+using OnLineShop.Data.Models.Contracts;
 
 namespace OnLineShop.Data.Models
 {
-    public class OrderDetail:IDbModel
+    public class OrderDetail : IDbModel
     {
         public int Id { get; set; }
 
@@ -17,13 +15,16 @@ namespace OnLineShop.Data.Models
 
         public virtual Order Order { get; set; }
 
-        public string Username { get; set; }
-
         public int ProductId { get; set; }
 
+        [Required]
+        [Range(
+           ValidationConstants.QuantityMinValue,
+           ValidationConstants.QuantitiMaxValue,
+           ErrorMessage = ValidationConstants.QuаntityOutOfRangeError)]
         public int Quantity { get; set; }
 
-        public decimal? UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
         public bool IsDeleted { get; set; }
     }

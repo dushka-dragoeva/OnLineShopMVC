@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +7,7 @@ using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
-    public class Size: ISize , IDbModel
+    public class Size : IDbModel
     {
         private ICollection<Product> products;
 
@@ -23,8 +22,8 @@ namespace OnLineShop.Data.Models
         [Required]
         [Index(IsUnique = true)]
         [MinLength(1)]
-        [MaxLength(ValidationConstants.NameMaxLength)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.ShortFieldError)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.LongFieldError)]
         public string Value { get; set; }
 
         public virtual ICollection<Product> Products

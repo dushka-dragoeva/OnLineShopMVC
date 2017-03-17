@@ -24,10 +24,6 @@ namespace OnLineShop.Data
 
         public IDbSet<Brand> Brands { get; set; }
 
-        public IDbSet<Address> DeliveryAddress { get; set; }
-
-        public IDbSet<Photo> Photos { get; set; }  // Could be only string
-
         public IDbSet<Size> Sizes { get; set; }
 
         public IDbSet<Town> Towns { get; set; }
@@ -36,16 +32,17 @@ namespace OnLineShop.Data
 
         public IDbSet<Product> Products { get; set; }
 
-        public IDbSet<CartItem> ShoppingCartItems { get; set; }
+       // public IDbSet<CartItem> ShoppingCartItems { get; set; }
 
         public IDbSet<OrderDetail> OrderDetail { get; set; }
 
         public IDbSet<Order> Order { get; set; }
 
-        public IDbSet<ContactInfo> ContactInfo { get; set; }
+        public IDbSet<ContactInfo> ContactInfos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+           // modelBuilder.IncludeMetadataInDatabase = false;
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
