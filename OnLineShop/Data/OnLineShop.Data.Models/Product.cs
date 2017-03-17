@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using OnLineShop.Data.Models.Utils;
+using OnLineShop.Common.Constants;
 using OnLineShop.Data.Models.Contracts;
 
 namespace OnLineShop.Data.Models
@@ -31,21 +31,21 @@ namespace OnLineShop.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(Constants.NameMinLength, ErrorMessage = Constants.ShortNameError)]
-        [MaxLength(Constants.NameMaxLength, ErrorMessage = Constants.LongNameError)]
-        [RegularExpression(Constants.EnBgDigitSpaceMinus, ErrorMessage = Constants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortNameError)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongNameError)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
-        [MinLength(Constants.DescriptionMinLength, ErrorMessage = Constants.ShortDescriptionError)]
-        [MaxLength(Constants.DescriptionMaxLength, ErrorMessage = Constants.LongDescriptionError)]
-        [RegularExpression(Constants.DescriptionRegex, ErrorMessage = Constants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage = ValidationConstants.ShortDescriptionError)]
+        [MaxLength(ValidationConstants.DescriptionMaxLength, ErrorMessage = ValidationConstants.LongDescriptionError)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
         public string Description { get; set; }
 
         [Required]
-        [MinLength(Constants.NameMinLength, ErrorMessage = Constants.ShortNameError)]
-        [MaxLength(Constants.NameMaxLength, ErrorMessage = Constants.LongNameError)]
-        [RegularExpression(Constants.DescriptionRegex, ErrorMessage = Constants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortNameError)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongNameError)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
         public string ModelNumber { get; set; }
 
         [Required]
@@ -64,8 +64,8 @@ namespace OnLineShop.Data.Models
 
         //  public virtual CartItem CartItem { get; set; }
 
-        [MinLength(UrlLengthMinLength, ErrorMessage = Constants.ShortUrlError)]
-        [MaxLength(UrlLengthMaxValue, ErrorMessage = Constants.LongUrlError)]
+        [MinLength(UrlLengthMinLength, ErrorMessage = ValidationConstants.ShortUrlError)]
+        [MaxLength(UrlLengthMaxValue, ErrorMessage = ValidationConstants.LongUrlError)]
         public string PictureUrl { get; set; }
 
         [Required]

@@ -81,7 +81,6 @@
     <Compile Include="Size.cs" />
     <Compile Include="Town.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Utils\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -89,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Factories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OnLineShop.Common.Constants\OnLineShop.Common.Constants.csproj">
+      <Project>{47d3d32e-4834-4642-8fe8-825eb3fefbca}</Project>
+      <Name>OnLineShop.Common.Constants</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

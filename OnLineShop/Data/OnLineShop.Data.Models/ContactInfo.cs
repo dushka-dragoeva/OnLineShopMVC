@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using OnLineShop.Data.Models.Contracts;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
@@ -17,27 +18,27 @@ namespace OnLineShop.Data.Models
         public virtual User Customer { get; set; }
 
         [Required]
-        [MinLength(Utils.Constants.NameMinLength)]
-        [MaxLength(Utils.Constants.NameMaxLength)]
-        [RegularExpression(Utils.Constants.EnBgSpaceMinus)]
+        [MinLength(ValidationConstants.NameMinLength)]
+        [MaxLength(ValidationConstants.NameMaxLength)]
+        [RegularExpression(ValidationConstants.EnBgSpaceMinus)]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength(Utils.Constants.NameMinLength)]
-        [MaxLength(Utils.Constants.NameMaxLength)]
-        [RegularExpression(Utils.Constants.EnBgSpaceMinus)]
+        [MinLength(ValidationConstants.NameMinLength)]
+        [MaxLength(ValidationConstants.NameMaxLength)]
+        [RegularExpression(ValidationConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 
         [Required]
-        [RegularExpression(Utils.Constants.EmailRegex)]
+        [RegularExpression(ValidationConstants.EmailRegex)]
         public string Email { get; set; }
 
         [Required]
-        [RegularExpression(Utils.Constants.PhoneRegex)]
+        [RegularExpression(ValidationConstants.PhoneRegex)]
         public string PhoneNumber { get; set; }
 
         [Required]
-        [RegularExpression(Utils.Constants.DescriptionRegex)]
+        [RegularExpression(ValidationConstants.DescriptionRegex)]
         [ForeignKey("Address")]
         public int AddressID { get; set; }
 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using OnLineShop.Data.Models.Contracts;
-using OnLineShop.Data.Models.Utils;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
@@ -28,7 +28,7 @@ namespace OnLineShop.Data.Models
         [Index(IsUnique = true)]
         [MinLength(2)]
         [MaxLength(20)]
-        [RegularExpression(Constants.EnBgDigitSpaceMinus)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
         public string Name { get; set; }
 
         public virtual ICollection<Product> Products

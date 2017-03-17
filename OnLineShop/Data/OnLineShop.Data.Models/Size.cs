@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using OnLineShop.Data.Models.Contracts;
-using OnLineShop.Data.Models.Utils;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
@@ -23,8 +23,8 @@ namespace OnLineShop.Data.Models
         [Required]
         [Index(IsUnique = true)]
         [MinLength(1)]
-        [MaxLength(Constants.NameMaxLength)]
-        [RegularExpression(Constants.EnBgDigitSpaceMinus)]
+        [MaxLength(ValidationConstants.NameMaxLength)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
         public string Value { get; set; }
 
         public virtual ICollection<Product> Products

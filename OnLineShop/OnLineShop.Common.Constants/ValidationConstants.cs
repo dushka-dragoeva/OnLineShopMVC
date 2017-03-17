@@ -1,6 +1,12 @@
-﻿namespace OnLineShop.Data.Models.Utils
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnLineShop.Common.Constants
 {
-    public class Constants
+    public class ValidationConstants
     {
         public const string EnBgSpaceMinus = @"^[a-zA-Zа-яА-Я\s\-]+$";
         public const string EnBgDigitSpaceMinus = @"^[a-zA-Zа-яА-Я0-9\s\-]+$";
@@ -16,7 +22,7 @@
         public const string UrlRegex = @"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$";
 
         public const int NameMinLength = 1;
-        public const int NameMaxLength= 40;
+        public const int NameMaxLength = 40;
 
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 500;
@@ -24,15 +30,12 @@
         public const string ShortUrlError = "Линка към снимката трябва да бъде поне 6 символа";
         public const string LongUrlError = "Линка към снимката може да бъде максимум  символа";
 
-        public const string ShortNameError= "Името трябва да бъде поне 1 символа";
+        public const string ShortNameError = "Името трябва да бъде поне 1 символа";
         public const string LongNameError = "Името може да бъде максимум 40 символа";
 
-        public const string ShortDescriptionError= "Описанието трябва да бъде поне 10 символа";
-        public const string LongDescriptionError= "Описанието може да бъде максимум 500 символа";
+        public const string ShortDescriptionError = "Описанието трябва да бъде поне 10 символа";
+        public const string LongDescriptionError = "Описанието може да бъде максимум 500 символа";
 
         public const string NotAllowedSymbolsError = "Неразрешени символи";
-        
-
-
     }
 }

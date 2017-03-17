@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using OnLineShop.Data.Models.Utils;
 using OnLineShop.Data.Models.Contracts;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
@@ -24,18 +24,18 @@ namespace OnLineShop.Data.Models
         [Index(IsUnique = true)]
         [MinLength(2)]
         [MaxLength(20)]
-        [RegularExpression(Constants.EnBgDigitSpaceMinus)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
-        [MinLength(Constants.DescriptionMinLength)]
-        [MaxLength(Utils.Constants.DescriptionMaxLength)]
-        [RegularExpression(Constants.DescriptionRegex)]
+        [MinLength(ValidationConstants.DescriptionMinLength)]
+        [MaxLength(ValidationConstants.DescriptionMaxLength)]
+        [RegularExpression(ValidationConstants.DescriptionRegex)]
         public string Description { get; set; }
 
         [MinLength(5)]
         [MaxLength(200)]
-        [RegularExpression(Constants.DescriptionRegex)]
+        [RegularExpression(ValidationConstants.DescriptionRegex)]
         public string ImageUrl { get; set; }
 
         public virtual ICollection<Product> Products

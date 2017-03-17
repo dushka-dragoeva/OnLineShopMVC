@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using OnLineShop.Data.Models.Contracts;
+using OnLineShop.Common.Constants;
+
 namespace OnLineShop.Data.Models
 {
     public class Address : IDbModel
@@ -22,7 +24,7 @@ namespace OnLineShop.Data.Models
         [Required]
         [MinLength(StreetMinLength)]
         [MaxLength(StreetMaxLength)]
-        [RegularExpression(Utils.Constants.EnBgSpaceMinus)]
+        [RegularExpression(ValidationConstants.EnBgSpaceMinus)]
         public string AddressLine { get; set; }
 
         public string PostCode { get; set; }

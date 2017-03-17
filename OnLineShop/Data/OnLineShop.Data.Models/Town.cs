@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using OnLineShop.Data.Models.Contracts;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Data.Models
 {
@@ -13,9 +14,9 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(Utils.Constants.NameMinLength)]
-        [MaxLength(Utils.Constants.NameMinLength)]
-        [RegularExpression(Utils.Constants.EnBgDigitSpaceMinus)]
+        [MinLength(ValidationConstants.NameMinLength)]
+        [MaxLength(ValidationConstants.NameMinLength)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
         public string Name { get; set; }
        
     }
