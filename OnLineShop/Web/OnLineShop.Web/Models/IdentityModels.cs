@@ -18,16 +18,16 @@ namespace OnLineShop.Web.Models
     //    }
     //}
 
-    //public class ApplicationDbContext : IdentityDbContext<User>
+    //public class OnLineShopDbContext : IdentityDbContext<User>
     //{
-    //    public ApplicationDbContext()
+    //    public OnLineShopDbContext()
     //        : base("DefaultConnection", throwIfV1Schema: false)
     //    {
     //    }
 
-    //    public static ApplicationDbContext Create()
+    //    public static OnLineShopDbContext Create()
     //    {
-    //        return new ApplicationDbContext();
+    //        return new OnLineShopDbContext();
     //    }
     //}
 }
