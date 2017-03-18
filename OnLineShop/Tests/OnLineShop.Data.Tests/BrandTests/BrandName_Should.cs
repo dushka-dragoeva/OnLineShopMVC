@@ -7,15 +7,15 @@ using NUnit.Framework;
 using OnLineShop.Data.Models;
 using OnLineShop.Common.Constants;
 
-namespace OnLineShop.Data.Tests.CategoryTests
+namespace OnLineShop.Data.Tests.BrandTests
 {
-    public class Name_Should
+    public class BrandName_Should
     {
         [Test]
         public void HaveRequiredAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var requiredAttribute = nameProperty.GetCustomAttributes(typeof(RequiredAttribute), true)
@@ -30,7 +30,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
         public void HaveUniqueAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var indexAttribute = nameProperty.GetCustomAttributes(typeof(IndexAttribute), true)
@@ -46,7 +46,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
         public void HaveCorrectMinLength()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -61,7 +61,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
         public void HaveCorrectMinLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -71,12 +71,12 @@ namespace OnLineShop.Data.Tests.CategoryTests
             // Assert
             Assert.That(minLengthAttribute.ErrorMessage, Is.Not.Null.And.EqualTo(ValidationConstants.MinLengthFieldErrorMessage));
         }
-        
+
         [Test]
         public void HaveCorrectMaxLength()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -91,7 +91,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
         public void HaveCorrectMaxLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -106,7 +106,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
         public void HaveCorrectRegularExpression()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Brand).GetProperty("Name");
 
             // Act
             var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
@@ -132,15 +132,15 @@ namespace OnLineShop.Data.Tests.CategoryTests
             Assert.That(regularExpressionAttribute.ErrorMessage, Is.Not.Null.And.EqualTo(ValidationConstants.NotAllowedSymbolsErrorMessage));
         }
 
-        [TestCase("Дамски Топ")]
-        [TestCase("Dress")]
+        [TestCase("Lusy")]
+        [TestCase("Бай Митко")]
         public void GetAndSetDataCorrectly(string testName)
         {
             // Arrange & Act
-            var category = new Category() { Name = testName };
+            var brand = new Brand() { Name = testName };
 
             // Assert
-            Assert.AreEqual(category.Name, testName);
+            Assert.AreEqual(brand.Name, testName);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace OnLineShop.Data.Tests.CategoryTests
 {
-    public class Id_Should
+    public class CategoryId_Should
     {
         [Test]
         public void HaveKeyAttribute()

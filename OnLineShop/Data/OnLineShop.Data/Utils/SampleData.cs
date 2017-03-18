@@ -73,7 +73,7 @@ namespace OnLineShop.Data.Utils
                 PictureUrl="~/Content/Images/14420-c .jpg",
                 Price=39.90m,
                 CategoryId=2,
-                BrandId=1,
+                BrandId=5,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
                  Quantity=5
             },
@@ -85,8 +85,8 @@ namespace OnLineShop.Data.Utils
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/14420-c .jpg",
                 Price=39.90m,
-                CategoryId=1,
-                BrandId=2,
+                CategoryId=18,
+                BrandId=5,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
                  Quantity=5
             },
@@ -98,7 +98,7 @@ namespace OnLineShop.Data.Utils
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/10446_taupe.jpg",
                 Price=39.90m,
-                CategoryId=3,
+                CategoryId=4,
                 BrandId=2,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
                  Quantity=5
@@ -111,7 +111,7 @@ namespace OnLineShop.Data.Utils
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/14420-c .jpg",
                 Price=39.90m,
-                CategoryId=1,
+                CategoryId=18,
                 BrandId=2,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
                  Quantity=5
@@ -164,7 +164,7 @@ namespace OnLineShop.Data.Utils
                 PictureUrl="~/Content/Images/14420-c .jpg",
                 Price=39.90m,
                 CategoryId=2,
-                BrandId=1,
+                BrandId=4,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
                  Quantity=5
             },
@@ -189,7 +189,7 @@ namespace OnLineShop.Data.Utils
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/10446_taupe.jpg",
                 Price=39.90m,
-                CategoryId=3,
+                CategoryId=1,
                 BrandId=2,
                  Quantity=5,
                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, }

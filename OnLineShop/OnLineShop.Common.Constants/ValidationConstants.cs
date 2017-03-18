@@ -24,8 +24,8 @@
         public const int AddressMinLength = 2;
         public const int AddressMaxLength = 100;
 
-        public const int UrlLengthMinLength = 6;
-        public const int UrlLengthMaxValue = 300;
+        public const int ImageUrlMinLength = 6;
+        public const int ImageUrlMaxLength= 300;
 
         public const int QuantityMinValue = 1;
         public const int QuantitiMaxValue = 10000000;

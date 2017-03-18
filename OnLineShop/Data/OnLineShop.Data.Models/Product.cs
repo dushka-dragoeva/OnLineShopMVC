@@ -60,8 +60,8 @@ namespace OnLineShop.Data.Models
 
         //  public virtual CartItem CartItem { get; set; }
 
-        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage = ValidationConstants.MinLengthUrlErrorMessage)]
-        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage = ValidationConstants.MaxLengthUrlErrorMessage)]
+        [MinLength(ValidationConstants.ImageUrlMinLength, ErrorMessage = ValidationConstants.MinLengthUrlErrorMessage)]
+        [MaxLength(ValidationConstants.ImageUrlMaxLength, ErrorMessage = ValidationConstants.MaxLengthUrlErrorMessage)]
         public string PictureUrl { get; set; }
 
         [Required]

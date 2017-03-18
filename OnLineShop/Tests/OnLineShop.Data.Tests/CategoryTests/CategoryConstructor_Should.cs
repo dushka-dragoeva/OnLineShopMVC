@@ -6,7 +6,7 @@ using OnLineShop.Data.Models;
 
 namespace OnLineShop.Data.Tests.CategoryTests
 {
-    public class Constructor_Should
+    public class CategoryConstructor_Should
     {
         [Test]
         public void HaveParameterlessConstructor()

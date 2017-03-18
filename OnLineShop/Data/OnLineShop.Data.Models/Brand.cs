@@ -27,14 +27,13 @@ namespace OnLineShop.Data.Models
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
-        [MinLength(ValidationConstants.DescriptionMinLength)]
-        [MaxLength(ValidationConstants.DescriptionMaxLength)]
-        [RegularExpression(ValidationConstants.DescriptionRegex)]
+        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage =ValidationConstants.MinLengthDescriptionErrorMessage)]
+        [MaxLength(ValidationConstants.DescriptionMaxLength, ErrorMessage =ValidationConstants.MaxLengthDescriptionErrorMessage)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage =ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Description { get; set; }
 
-        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage =ValidationConstants.MinLengthUrlErrorMessage)]
-        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage =ValidationConstants.MaxLengthUrlErrorMessage)]
-
+        [MinLength(ValidationConstants.ImageUrlMinLength, ErrorMessage =ValidationConstants.MinLengthUrlErrorMessage)]
+        [MaxLength(ValidationConstants.ImageUrlMaxLength, ErrorMessage =ValidationConstants.MaxLengthUrlErrorMessage)]
         public string ImageUrl { get; set; }
 
         public virtual ICollection<Product> Products

@@ -61,10 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrandTests\BrandConstructor_Should.cs" />
+    <Compile Include="BrandTests\BrandDescription_Should.cs" />
+    <Compile Include="BrandTests\BrandId_Should.cs" />
+    <Compile Include="BrandTests\BrandImageUrl_Should.cs" />
+    <Compile Include="BrandTests\BrandName_Should.cs" />
     <Compile Include="CategoryTests\CategoryCollection_Should.cs" />
-    <Compile Include="CategoryTests\Constructor_Should.cs" />
-    <Compile Include="CategoryTests\Id_Should.cs" />
-    <Compile Include="CategoryTests\Name_Should.cs" />
+    <Compile Include="CategoryTests\CategoryConstructor_Should.cs" />
+    <Compile Include="CategoryTests\CategoryId_Should.cs" />
+    <Compile Include="CategoryTests\CategoryName_Should.cs" />
     <Compile Include="CategoryTests\ProductsCollection_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
