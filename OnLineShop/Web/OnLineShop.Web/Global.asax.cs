@@ -1,4 +1,5 @@
 ﻿using OnLineShop.Data;
+using OnLineShop.Data.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,8 +15,10 @@ namespace OnLineShop.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<OnLineShopDbContext>(null);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OnLineShopDbContext>());
+            // Database.SetInitializer<OnLineShopDbContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OnLineShopDbContext, Configuration>());
+            OnLineShopDbContext.Create().Database.Initialize(true);
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OnLineShopDbContext>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

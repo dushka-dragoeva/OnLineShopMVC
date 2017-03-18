@@ -30,7 +30,7 @@
         public const int QuantityMinValue = 1;
         public const int QuantitiMaxValue = 10000000;
 
-        public const string PriceMinValue = "0.00";
+        public const string PriceMinValue = "0.01";
         public const string PriceMaxValue = "999999999.99";
 
         public const string ShortUrlError = "Линка към снимката трябва да бъде поне 6 символа";

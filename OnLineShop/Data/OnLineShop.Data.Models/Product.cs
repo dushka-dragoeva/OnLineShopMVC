@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using OnLineShop.Common.Constants;
 using OnLineShop.Data.Models.Contracts;
+using System;
+using System.Threading;
+using System.Globalization;
 
 namespace OnLineShop.Data.Models
 {
@@ -12,6 +15,7 @@ namespace OnLineShop.Data.Models
         private ICollection<Size> sizes;
         public Product()
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             this.sizes = new HashSet<Size>();
         }
 
@@ -64,9 +68,10 @@ namespace OnLineShop.Data.Models
             ValidationConstants.PriceMinValue,
             ValidationConstants.PriceMaxValue,
             ErrorMessage = ValidationConstants.PriceOutOfRangeError)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}", ConvertEmptyStringToNull = true)]
         [DataType(DataType.Currency)]
         public decimal? Price { get; set; }
+
+        public DateTime AddedOn { get; set; }
 
         public virtual ICollection<Size> Sizes
         {

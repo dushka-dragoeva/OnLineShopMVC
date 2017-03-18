@@ -240,6 +240,24 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\10446_taupe.jpg" />
+    <Content Include="Content\Images\14413-c.jpg" />
+    <Content Include="Content\Images\14420-c .jpg" />
+    <Content Include="Content\Images\6694-NOIR-10.jpg" />
+    <Content Include="Content\Images\6694-NOIR-11.jpg" />
+    <Content Include="Content\Images\6694-NOIR-6.jpg" />
+    <Content Include="Content\Images\6694-NOIR-7.jpg" />
+    <Content Include="Content\Images\6694-NOIR-9.jpg" />
+    <Content Include="Content\Images\6704-BLANC NOIR-19.jpg" />
+    <Content Include="Content\Images\6704-BLANC NOIR-22.jpg" />
+    <Content Include="Content\Images\6704-BLANC NOIR-28.jpg" />
+    <Content Include="Content\Images\675-BLANC-33.jpg" />
+    <Content Include="Content\Images\675-BLANC-34.jpg" />
+    <Content Include="Content\Images\675-BLANC-35.jpg" />
+    <Content Include="Content\Images\6759-1-BLANC-37.jpg" />
+    <Content Include="Content\Images\Alefa.jpg" />
+    <Content Include="Content\Images\index.jpg" />
+    <Content Include="Content\Images\R8052-NOIR-190.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

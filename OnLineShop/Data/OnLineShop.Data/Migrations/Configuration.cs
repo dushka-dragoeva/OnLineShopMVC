@@ -1,9 +1,12 @@
 namespace OnLineShop.Data.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Globalization;
     using System.Linq;
+    using System.Threading;
 
     public sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
     {
@@ -15,18 +18,52 @@ namespace OnLineShop.Data.Migrations
 
         protected override void Seed(OnLineShopDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            foreach (var category in Utils.SampleData.categories)
+            {
+                context.Categories.AddOrUpdate(c => c.Name, new Category { Name = category });
+            }
+
+            context.SaveChanges();
+
+            foreach (var brand in Utils.SampleData.brands)
+            {
+                context.Brands.AddOrUpdate(b => b.Name, new Brand { Name = brand });
+            }
+
+            context.SaveChanges();
+
+            foreach (var size in Utils.SampleData.sizes)
+            {
+                context.Sizes.AddOrUpdate(s => s.Value, new Size { Value = size });
+            }
+
+            context.SaveChanges();
+
+            foreach (var product in Utils.SampleData.Products)
+            {
+                var productToAdd = new Product();
+                productToAdd.Name = product.Name;
+                productToAdd.PictureUrl = product.PictureUrl;
+                productToAdd.Price = product.Price;
+                productToAdd.Quantity = product.Quantity;
+                productToAdd.AddedOn = DateTime.Now;
+                productToAdd.BrandId = product.BrandId;
+                productToAdd.CategoryId = product.CategoryId;
+                productToAdd.Description = product.Description;
+                product.IsDeleted = false;
+                productToAdd.ModelNumber = product.ModelNumber;
+
+                foreach (var size in product.Sizes)
+                {
+                    var sizeToAdd = context.Sizes.FirstOrDefault(s => s.Value == size.Value);
+                    productToAdd.Sizes.Add(sizeToAdd);
+                }
+                context.Products.AddOrUpdate(productToAdd);
+            }
+
+            context.SaveChanges();
         }
     }
 }
