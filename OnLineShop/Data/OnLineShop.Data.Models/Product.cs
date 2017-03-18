@@ -24,28 +24,28 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongFieldError)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
-        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage = ValidationConstants.ShortDescriptionError)]
-        [MaxLength(ValidationConstants.DescriptionMaxLength, ErrorMessage = ValidationConstants.LongDescriptionError)]
-        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.DescriptionMinLength, ErrorMessage = ValidationConstants.MinLengthDescriptionErrorMessage)]
+        [MaxLength(ValidationConstants.DescriptionMaxLength, ErrorMessage = ValidationConstants.MaxLengthDescriptionErrorMessage)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Description { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongFieldError)]
-        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string ModelNumber { get; set; }
 
         [Required]
         [Range(
             ValidationConstants.QuantityMinValue,
             ValidationConstants.QuantitiMaxValue,
-            ErrorMessage = ValidationConstants.QuаntityOutOfRangeError)]
+            ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
         public int Quantity { get; set; }
 
         [ForeignKey("Category")]
@@ -60,15 +60,15 @@ namespace OnLineShop.Data.Models
 
         //  public virtual CartItem CartItem { get; set; }
 
-        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage = ValidationConstants.ShortUrlError)]
-        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage = ValidationConstants.LongUrlError)]
+        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage = ValidationConstants.MinLengthUrlErrorMessage)]
+        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage = ValidationConstants.MaxLengthUrlErrorMessage)]
         public string PictureUrl { get; set; }
 
         [Required]
         [Range(typeof(decimal),
             ValidationConstants.PriceMinValue,
             ValidationConstants.PriceMaxValue,
-            ErrorMessage = ValidationConstants.PriceOutOfRangeError)]
+            ErrorMessage = ValidationConstants.PriceOutOfRangeErrorMessage)]
         [DataType(DataType.Currency)]
         public decimal? Price { get; set; }
 

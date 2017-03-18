@@ -33,19 +33,19 @@
         public const string PriceMinValue = "0.01";
         public const string PriceMaxValue = "999999999.99";
 
-        public const string ShortUrlError = "Линка към снимката трябва да бъде поне 6 символа";
-        public const string LongUrlError = "Линка към снимката може да бъде максимум  символа";
+        public const string MinLengthUrlErrorMessage = "Линка към снимката трябва да бъде поне 6 символа";
+        public const string MaxLengthUrlErrorMessage = "Линка към снимката може да бъде максимум  символа";
 
-        public const string ShortFieldError = "Полето трябва да бъде поне 1 символа";
-        public const string LongFieldError = "Полето може да бъде максимум 40 символа";
+        public const string MinLengthFieldErrorMessage = "Полето трябва да бъде поне 1 символа";
+        public const string MaxLengthFieldErrorMessage = "Полето може да бъде максимум 40 символа";
 
-        public const string ShortDescriptionError = "Описанието трябва да бъде поне 10 символа";
-        public const string LongDescriptionError = "Описанието може да бъде максимум 500 символа";
+        public const string MinLengthDescriptionErrorMessage = "Описанието трябва да бъде поне 10 символа";
+        public const string MaxLengthDescriptionErrorMessage = "Описанието може да бъде максимум 500 символа";
 
-        public const string NotAllowedSymbolsError = "Полето съдържа неразрешени символи";
+        public const string NotAllowedSymbolsErrorMessage = "Полето съдържа неразрешени символи";
 
-        public const string QuаntityOutOfRangeError = "Невалидно количество, диапазон 1 000, 10 0000 000.";
-        public const string PriceOutOfRangeError = "Невалиднa cenцена, диапазон 0,01, 999 999 999.99.";
+        public const string QuаntityOutOfRangeErrorMessage = "Невалидно количество, диапазон 1 000, 10 0000 000.";
+        public const string PriceOutOfRangeErrorMessage = "Невалиднa cenцена, диапазон 0,01, 999 999 999.99.";
 
 
 

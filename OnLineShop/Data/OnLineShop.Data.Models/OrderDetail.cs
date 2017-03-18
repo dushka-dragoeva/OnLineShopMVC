@@ -21,7 +21,7 @@ namespace OnLineShop.Data.Models
         [Range(
            ValidationConstants.QuantityMinValue,
            ValidationConstants.QuantitiMaxValue,
-           ErrorMessage = ValidationConstants.QuаntityOutOfRangeError)]
+           ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }

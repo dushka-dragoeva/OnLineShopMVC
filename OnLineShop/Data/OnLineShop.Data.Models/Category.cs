@@ -19,16 +19,15 @@ namespace OnLineShop.Data.Models
         }
 
         [Key]
-
         public int Id { get; set; }
 
         public bool IsDeleted { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongFieldError)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Name { get; set; }
 
         public virtual ICollection<Product> Products

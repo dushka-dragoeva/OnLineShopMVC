@@ -21,8 +21,8 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMinLength, ErrorMessage =ValidationConstants.LongFieldError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMinLength, ErrorMessage =ValidationConstants.MaxLengthFieldErrorMessage)]
         [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus)]
         public string Name { get; set; }
 

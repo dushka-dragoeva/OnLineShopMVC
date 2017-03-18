@@ -17,14 +17,14 @@ namespace OnLineShop.Data.Models
         public virtual User Customer { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage =ValidationConstants.LongFieldError)]
-        [RegularExpression(ValidationConstants.EnBgSpaceMinus, ErrorMessage =ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage =ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgSpaceMinus, ErrorMessage =ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.LongFieldError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
         [RegularExpression(ValidationConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 

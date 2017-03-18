@@ -21,9 +21,9 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage =ValidationConstants.ShortFieldError)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage =ValidationConstants.LongFieldError)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage =ValidationConstants.NotAllowedSymbolsError)]
+        [MinLength(ValidationConstants.NameMinLength, ErrorMessage =ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage =ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage =ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
@@ -32,8 +32,8 @@ namespace OnLineShop.Data.Models
         [RegularExpression(ValidationConstants.DescriptionRegex)]
         public string Description { get; set; }
 
-        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage =ValidationConstants.ShortUrlError)]
-        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage =ValidationConstants.LongUrlError)]
+        [MinLength(ValidationConstants.UrlLengthMinLength, ErrorMessage =ValidationConstants.MinLengthUrlErrorMessage)]
+        [MaxLength(ValidationConstants.UrlLengthMaxValue, ErrorMessage =ValidationConstants.MaxLengthUrlErrorMessage)]
 
         public string ImageUrl { get; set; }
 
