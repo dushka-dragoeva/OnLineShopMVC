@@ -5,10 +5,8 @@ using System.Data.Entity.Infrastructure;
 
 namespace OnLineShop.Data
 {
-    public interface IOnLineShopDbContext : IDisposable
+    public interface IOnLineShopDbContext : IOnLineShopBaseDbContext
     {
-        int SaveChanges();
-
         IDbSet<User> Users { get; set; }
 
         IDbSet<Brand> Brands { get; set; }
