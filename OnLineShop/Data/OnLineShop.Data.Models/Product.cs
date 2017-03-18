@@ -44,7 +44,7 @@ namespace OnLineShop.Data.Models
         [Required]
         [Range(
             ValidationConstants.QuantityMinValue,
-            ValidationConstants.QuantitiMaxValue,
+            ValidationConstants.QuantityMaxValue,
             ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
         public int Quantity { get; set; }
 

@@ -7,15 +7,15 @@ using NUnit.Framework;
 using OnLineShop.Data.Models;
 using OnLineShop.Common.Constants;
 
-namespace OnLineShop.Data.Tests.BrandTests
+namespace OnLineShop.Data.Tests.ProductTests
 {
-    public class BrandName_Should
+    public class ProductName_Should
     {
         [Test]
         public void HaveRequiredAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var requiredAttribute = nameProperty.GetCustomAttributes(typeof(RequiredAttribute), true)
@@ -30,7 +30,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveUniqueAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var indexAttribute = nameProperty.GetCustomAttributes(typeof(IndexAttribute), true)
@@ -46,7 +46,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMinLength()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -61,7 +61,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMinLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -76,7 +76,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMaxLength()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -91,7 +91,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMaxLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -106,7 +106,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectRegularExpression()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Product).GetProperty("Name");
 
             // Act
             var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
@@ -121,7 +121,7 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectRegularExpressionErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var nameProperty = typeof(Category).GetProperty("Name");
 
             // Act
             var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
@@ -132,15 +132,15 @@ namespace OnLineShop.Data.Tests.BrandTests
             Assert.That(regularExpressionAttribute.ErrorMessage, Is.Not.Null.And.EqualTo(ValidationConstants.NotAllowedSymbolsErrorMessage));
         }
 
-        [TestCase("Lusy")]
-        [TestCase("Бай Митко")]
+        [TestCase("Къса Пола")]
+        [TestCase("Бермуди")]
         public void GetAndSetDataCorrectly(string testName)
         {
             // Arrange & Act
-            var brand = new Brand() { Name = testName };
+            var product = new Product() { Name = testName };
 
             // Assert
-            Assert.AreEqual(brand.Name, testName);
+            Assert.AreEqual(product.Name, testName);
         }
     }
 }

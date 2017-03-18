@@ -7,18 +7,18 @@ using NUnit.Framework;
 using OnLineShop.Data.Models;
 using OnLineShop.Common.Constants;
 
-namespace OnLineShop.Data.Tests.BrandTests
+namespace OnLineShop.Data.Tests.ProductTests
 {
-    public class BrandName_Should
+    public class ModelNumber_Should
     {
         [Test]
         public void HaveRequiredAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var requiredAttribute = nameProperty.GetCustomAttributes(typeof(RequiredAttribute), true)
+            var requiredAttribute = modelNumberProperty.GetCustomAttributes(typeof(RequiredAttribute), true)
                 .Cast<RequiredAttribute>()
                 .FirstOrDefault();
 
@@ -27,29 +27,13 @@ namespace OnLineShop.Data.Tests.BrandTests
         }
 
         [Test]
-        public void HaveUniqueAttribute()
-        {
-            // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
-
-            // Act
-            var indexAttribute = nameProperty.GetCustomAttributes(typeof(IndexAttribute), true)
-                .Cast<IndexAttribute>()
-                .FirstOrDefault();
-
-            // Assert
-            Assert.That(indexAttribute, Is.Not.Null);
-            Assert.That(indexAttribute.IsUnique, Is.True);
-        }
-
-        [Test]
         public void HaveCorrectMinLength()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
+            var minLengthAttribute = modelNumberProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
                 .Cast<MinLengthAttribute>()
                 .FirstOrDefault();
 
@@ -61,10 +45,10 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMinLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
+            var minLengthAttribute = modelNumberProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
                 .Cast<MinLengthAttribute>()
                 .FirstOrDefault();
 
@@ -76,10 +60,10 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMaxLength()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
+            var maxLengthAttribute = modelNumberProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
                 .Cast<MaxLengthAttribute>()
                 .FirstOrDefault();
 
@@ -91,10 +75,10 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectMaxLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
+            var maxLengthAttribute = modelNumberProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
                 .Cast<MaxLengthAttribute>()
                 .FirstOrDefault();
 
@@ -106,25 +90,25 @@ namespace OnLineShop.Data.Tests.BrandTests
         public void HaveCorrectRegularExpression()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
+            var regularExpressionAttribute = modelNumberProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
                 .Cast<RegularExpressionAttribute>()
                 .FirstOrDefault();
 
             // Assert
-            Assert.That(regularExpressionAttribute.Pattern, Is.Not.Null.And.EqualTo(ValidationConstants.EnBgDigitSpaceMinus));
+            Assert.That(regularExpressionAttribute.Pattern, Is.Not.Null.And.EqualTo(ValidationConstants.DescriptionRegex));
         }
 
         [Test]
         public void HaveCorrectRegularExpressionErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Brand).GetProperty("Name");
+            var modelNumberProperty = typeof(Product).GetProperty("ModelNumber");
 
             // Act
-            var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
+            var regularExpressionAttribute = modelNumberProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
                .Cast<RegularExpressionAttribute>()
                .FirstOrDefault();
 
@@ -132,15 +116,16 @@ namespace OnLineShop.Data.Tests.BrandTests
             Assert.That(regularExpressionAttribute.ErrorMessage, Is.Not.Null.And.EqualTo(ValidationConstants.NotAllowedSymbolsErrorMessage));
         }
 
-        [TestCase("Lusy")]
-        [TestCase("Бай Митко")]
-        public void GetAndSetDataCorrectly(string testName)
+        [TestCase("136AX")]
+        [TestCase("ARTG")]
+        public void GetAndSetDataCorrectly(string testModelNumber)
         {
             // Arrange & Act
-            var brand = new Brand() { Name = testName };
+            var product = new Product() { ModelNumber = testModelNumber };
 
             // Assert
-            Assert.AreEqual(brand.Name, testName);
+            Assert.AreEqual(product.ModelNumber, testModelNumber);
         }
     }
 }
+

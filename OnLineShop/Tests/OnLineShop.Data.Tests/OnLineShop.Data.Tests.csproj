@@ -71,6 +71,14 @@
     <Compile Include="CategoryTests\CategoryId_Should.cs" />
     <Compile Include="CategoryTests\CategoryName_Should.cs" />
     <Compile Include="CategoryTests\ProductsCollection_Should.cs" />
+    <Compile Include="ProductTests\ModelNumber_Should.cs" />
+    <Compile Include="ProductTests\ProductConstructor_Should.cs" />
+    <Compile Include="ProductTests\ProductDescription_Should.cs" />
+    <Compile Include="ProductTests\ProductId_Should.cs" />
+    <Compile Include="ProductTests\ProductImageUrl_Should.cs" />
+    <Compile Include="ProductTests\ProductName_Should.cs" />
+    <Compile Include="ProductTests\ProductPrice_Should.cs" />
+    <Compile Include="ProductTests\ProductQuantity_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

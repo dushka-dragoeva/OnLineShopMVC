@@ -28,7 +28,7 @@
         public const int ImageUrlMaxLength= 300;
 
         public const int QuantityMinValue = 1;
-        public const int QuantitiMaxValue = 10000000;
+        public const int QuantityMaxValue = 10000000;
 
         public const string PriceMinValue = "0.01";
         public const string PriceMaxValue = "999999999.99";
