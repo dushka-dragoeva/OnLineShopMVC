@@ -60,6 +60,7 @@ namespace OnLineShop.Data.Migrations
                     var sizeToAdd = context.Sizes.FirstOrDefault(s => s.Value == size.Value);
                     productToAdd.Sizes.Add(sizeToAdd);
                 }
+                
                 context.Products.AddOrUpdate(productToAdd);
             }
 

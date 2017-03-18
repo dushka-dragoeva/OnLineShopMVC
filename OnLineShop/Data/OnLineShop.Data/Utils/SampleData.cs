@@ -1,9 +1,4 @@
 ﻿using OnLineShop.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnLineShop.Data.Utils
 {
@@ -20,7 +15,7 @@ namespace OnLineShop.Data.Utils
 
          new Product
             {
-                Name= "Рокля Ферия",
+                Name= "Рокля Ферия 1",
                 Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/14420-c .jpg",
@@ -33,7 +28,7 @@ namespace OnLineShop.Data.Utils
 
           new Product
             {
-                Name= "Рокля Ферия",
+                Name= "Рокля Ферия 2",
                 Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
                 ModelNumber="А001",
                 PictureUrl="~/Content/Images/14420-c .jpg",
@@ -44,161 +39,161 @@ namespace OnLineShop.Data.Utils
                 Quantity=3
             },
 
-          // new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=4,
-          //      BrandId=3,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //      Quantity=7
-          //  },
+           new Product
+            {
+                Name= "Рокля Ферия 3",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=4,
+                BrandId=3,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                Quantity=7
+            },
 
-          //  new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=2,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+            new Product
+            {
+                Name= "Рокля Ферия 4",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=2,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //   new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=2,
-          //      BrandId=1,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+             new Product
+            {
+                Name= "Рокля Ферия 5",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=2,
+                BrandId=1,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //    new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=1,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+              new Product
+            {
+                Name= "Рокля Ферия 6",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=1,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //     new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/10446_taupe.jpg",
-          //      Price=39.90m,
-          //      CategoryId=3,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+               new Product
+            {
+                Name= "Рокля Ферия 7",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/10446_taupe.jpg",
+                Price=39.90m,
+                CategoryId=3,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //     new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=1,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+               new Product
+            {
+                Name= "Рокля Ферия 8",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=1,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=1,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+          new Product
+            {
+                Name= "Рокля Ферия 9",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=1,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          // new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=4,
-          //      BrandId=3,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+           new Product
+            {
+                Name= "Рокля Ферия 10",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=4,
+                BrandId=3,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //  new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=2,
-          //      BrandId=2,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+            new Product
+            {
+                Name= "Рокля Ферия 11",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=2,
+                BrandId=2,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //   new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=2,
-          //      BrandId=1,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+             new Product
+            {
+                Name= "Рокля Ферия 12",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=2,
+                BrandId=1,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //    new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/14420-c .jpg",
-          //      Price=39.90m,
-          //      CategoryId=1,
-          //      BrandId=2,
-          //       Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
-          //       Quantity=5
-          //  },
+              new Product
+            {
+                Name= "Рокля Ферия 13",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/14420-c .jpg",
+                Price=39.90m,
+                CategoryId=1,
+                BrandId=2,
+                 Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, },
+                 Quantity=5
+            },
 
-          //     new Product
-          //  {
-          //      Name= "Рокля Ферия",
-          //      Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
-          //      ModelNumber="А001",
-          //      PictureUrl="~/Content/Images/10446_taupe.jpg",
-          //      Price=39.90m,
-          //      CategoryId=3,
-          //      BrandId=2,
-          //       Quantity=5,
-          //      Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, }
-          //  }
+               new Product
+            {
+                Name= "Рокля Ферия 14",
+                Description="Лятна Рокля от еластично памучно трико - леко меланжирано.Роклята е с обло деколте и 3/4 ръкав, подходяща за пролетно - летния сезон.",
+                ModelNumber="А001",
+                PictureUrl="~/Content/Images/10446_taupe.jpg",
+                Price=39.90m,
+                CategoryId=3,
+                BrandId=2,
+                 Quantity=5,
+                Sizes = new []{ new Size {Value ="S"}, new Size { Value = "L" }, new Size { Value = "XL" }, }
+            }
         };
     }
 }
