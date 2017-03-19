@@ -7,15 +7,15 @@ using NUnit.Framework;
 using OnLineShop.Data.Models;
 using OnLineShop.Common.Constants;
 
-namespace OnLineShop.Data.Tests.ProductTests
+namespace OnLineShop.Data.Tests.SizeTests
 {
-    public class ProductName_Should
+    public class SizeValue_Should
     {
         [Test]
         public void HaveRequiredAttribute()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var requiredAttribute = nameProperty.GetCustomAttributes(typeof(RequiredAttribute), true)
@@ -27,26 +27,10 @@ namespace OnLineShop.Data.Tests.ProductTests
         }
 
         [Test]
-        public void HaveUniqueAttribute()
-        {
-            // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
-
-            // Act
-            var indexAttribute = nameProperty.GetCustomAttributes(typeof(IndexAttribute), true)
-                .Cast<IndexAttribute>()
-                .FirstOrDefault();
-
-            // Assert
-            Assert.That(indexAttribute, Is.Not.Null);
-            Assert.That(indexAttribute.IsUnique, Is.True);
-        }
-
-        [Test]
         public void HaveCorrectMinLength()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -61,7 +45,7 @@ namespace OnLineShop.Data.Tests.ProductTests
         public void HaveCorrectMinLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var minLengthAttribute = nameProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
@@ -76,7 +60,7 @@ namespace OnLineShop.Data.Tests.ProductTests
         public void HaveCorrectMaxLength()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -91,7 +75,7 @@ namespace OnLineShop.Data.Tests.ProductTests
         public void HaveCorrectMaxLengthErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var maxLengthAttribute = nameProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
@@ -106,7 +90,7 @@ namespace OnLineShop.Data.Tests.ProductTests
         public void HaveCorrectRegularExpression()
         {
             // Arrange
-            var nameProperty = typeof(Product).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
@@ -121,7 +105,7 @@ namespace OnLineShop.Data.Tests.ProductTests
         public void HaveCorrectRegularExpressionErrorMessage()
         {
             // Arrange
-            var nameProperty = typeof(Category).GetProperty("Name");
+            var nameProperty = typeof(Size).GetProperty("Value");
 
             // Act
             var regularExpressionAttribute = nameProperty.GetCustomAttributes(typeof(RegularExpressionAttribute), false)
@@ -132,15 +116,15 @@ namespace OnLineShop.Data.Tests.ProductTests
             Assert.That(regularExpressionAttribute.ErrorMessage, Is.Not.Null.And.EqualTo(ValidationConstants.NotAllowedSymbolsErrorMessage));
         }
 
-        [TestCase("Къса Пола")]
-        [TestCase("Бермуди")]
+        [TestCase("XS")]
+        [TestCase("38")]
         public void GetAndSetDataCorrectly(string testName)
         {
             // Arrange & Act
-            var product = new Product() { Name = testName };
+            var size = new Size() { Value = testName };
 
             // Assert
-            Assert.AreEqual(product.Name, testName);
+            Assert.AreEqual(size.Value, testName);
         }
     }
 }

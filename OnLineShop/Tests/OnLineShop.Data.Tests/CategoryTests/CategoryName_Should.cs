@@ -54,7 +54,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
                 .FirstOrDefault();
 
             // Assert
-            Assert.That(minLengthAttribute.Length, Is.Not.Null.And.EqualTo(ValidationConstants.NameMinLength));
+            Assert.That(minLengthAttribute.Length, Is.Not.Null.And.EqualTo(ValidationConstants.StandardMinLength));
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace OnLineShop.Data.Tests.CategoryTests
                 .FirstOrDefault();
 
             // Assert
-            Assert.That(maxLengthAttribute.Length, Is.Not.Null.And.EqualTo(ValidationConstants.NameMaxLength));
+            Assert.That(maxLengthAttribute.Length, Is.Not.Null.And.EqualTo(ValidationConstants.StandartMaxLength));
         }
 
         [Test]
