@@ -94,6 +94,10 @@
     <Compile Include="UserTests\UserTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\OnLineShop.Common.Constants\OnLineShop.Common.Constants.csproj">
+      <Project>{47d3d32e-4834-4642-8fe8-825eb3fefbca}</Project>
+      <Name>OnLineShop.Common.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\OnLineShop.Data.Models\OnLineShop.Data.Models.csproj">
       <Project>{056e42d9-7ab6-4346-92af-167be6f540b9}</Project>
       <Name>OnLineShop.Data.Models</Name>
@@ -101,10 +105,6 @@
     <ProjectReference Include="..\..\Data\OnLineShop.Data\OnLineShop.Data.csproj">
       <Project>{23c3bd06-f39e-409b-9f23-c8b3bdc0957e}</Project>
       <Name>OnLineShop.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OnLineShop.Common.Constants\OnLineShop.Common.Constants.csproj">
-      <Project>{47d3d32e-4834-4642-8fe8-825eb3fefbca}</Project>
-      <Name>OnLineShop.Common.Constants</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
