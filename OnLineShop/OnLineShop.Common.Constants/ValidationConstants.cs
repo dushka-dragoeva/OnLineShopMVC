@@ -15,8 +15,8 @@
         // source http://stackoverflow.com/questions/5717312/regular-expression-for-url
         public const string UrlRegex = @"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$";
 
-        public const int NameMinLength = 1;
-        public const int NameMaxLength = 40;
+        public const int StandardMinLength = 1;
+        public const int StandartMaxLength = 40;
 
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 500;

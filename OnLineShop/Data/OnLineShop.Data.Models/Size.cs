@@ -21,9 +21,9 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(1)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
-        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [MinLength(ValidationConstants.StandardMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.StandartMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Value { get; set; }
 
         public virtual ICollection<Product> Products

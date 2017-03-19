@@ -5,21 +5,22 @@ using NUnit.Framework;
 
 using OnLineShop.Data.Models;
 
-namespace OnLineShop.Data.Tests.CategoryTests
+namespace OnLineShop.Data.Tests.SizeTests
 {
-    public class ProductsCollection_Should
+    public class SizeProductsCollection_Should
     {
         [TestCase(17)]
         [TestCase(26)]
-        public void VehicleModelsCollection_ShouldGetAndSetDataCorrectly(int testId)
+        public void GetAndSetDataCorrectly(int testId)
         {
             // Arrange & Act
             var product = new Product() { Id = testId };
             var set = new HashSet<Product> { product };
-            var category = new Category() { Products = set };
+            var size = new Size() { Products = set };
 
             // Assert
-            Assert.AreEqual(category.Products.First().Id, testId);
+            Assert.AreEqual(size.Products.First().Id, testId);
         }
     }
 }
+

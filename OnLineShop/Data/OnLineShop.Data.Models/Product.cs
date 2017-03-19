@@ -5,8 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using OnLineShop.Common.Constants;
 using OnLineShop.Data.Models.Contracts;
 using System;
-using System.Threading;
-using System.Globalization;
 
 namespace OnLineShop.Data.Models
 {
@@ -15,7 +13,6 @@ namespace OnLineShop.Data.Models
         private ICollection<Size> sizes;
         public Product()
         {
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             this.sizes = new HashSet<Size>();
         }
 
@@ -24,8 +21,8 @@ namespace OnLineShop.Data.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [MinLength(ValidationConstants.StandardMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.StandartMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
         [RegularExpression(ValidationConstants.EnBgDigitSpaceMinus, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string Name { get; set; }
 
@@ -36,8 +33,8 @@ namespace OnLineShop.Data.Models
         public string Description { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.NameMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
-        [MaxLength(ValidationConstants.NameMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
+        [MinLength(ValidationConstants.StandardMinLength, ErrorMessage = ValidationConstants.MinLengthFieldErrorMessage)]
+        [MaxLength(ValidationConstants.StandartMaxLength, ErrorMessage = ValidationConstants.MaxLengthFieldErrorMessage)]
         [RegularExpression(ValidationConstants.DescriptionRegex, ErrorMessage = ValidationConstants.NotAllowedSymbolsErrorMessage)]
         public string ModelNumber { get; set; }
 

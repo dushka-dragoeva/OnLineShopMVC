@@ -34,7 +34,7 @@ namespace OnLineShop.Data.Models
             }
         }
 
-        public virtual ICollection<ContactInfo> ContactInfo
+        public virtual ICollection<ContactInfo> ContactInfos
         {
             get
             {

@@ -1,13 +1,7 @@
+using System.Data.Entity.Migrations;
+
 namespace OnLineShop.Data.Migrations
 {
-    using Models;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Globalization;
-    using System.Linq;
-    using System.Threading;
-
     public sealed class Configuration : DbMigrationsConfiguration<OnLineShop.Data.OnLineShopDbContext>
     {
         public Configuration()
@@ -18,8 +12,6 @@ namespace OnLineShop.Data.Migrations
 
         protected override void Seed(OnLineShopDbContext context)
         {
-            //Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-
             //foreach (var category in Utils.SampleData.categories)
             //{
             //    context.Categories.AddOrUpdate(c => c.Name, new Category { Name = category });
@@ -60,7 +52,7 @@ namespace OnLineShop.Data.Migrations
             //        var sizeToAdd = context.Sizes.FirstOrDefault(s => s.Value == size.Value);
             //        productToAdd.Sizes.Add(sizeToAdd);
             //    }
-                
+
             //    context.Products.AddOrUpdate(productToAdd);
             //}
 

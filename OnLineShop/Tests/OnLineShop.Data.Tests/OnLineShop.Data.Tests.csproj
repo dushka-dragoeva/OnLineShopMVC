@@ -65,25 +65,33 @@
     <Compile Include="BrandTests\BrandDescription_Should.cs" />
     <Compile Include="BrandTests\BrandId_Should.cs" />
     <Compile Include="BrandTests\BrandImageUrl_Should.cs" />
+    <Compile Include="BrandTests\BrandIsDeleted_Should.cs" />
     <Compile Include="BrandTests\BrandName_Should.cs" />
+    <Compile Include="BrandTests\BrandProductsCollection_Should.cs" />
     <Compile Include="CategoryTests\CategoryCollection_Should.cs" />
     <Compile Include="CategoryTests\CategoryConstructor_Should.cs" />
     <Compile Include="CategoryTests\CategoryId_Should.cs" />
+    <Compile Include="CategoryTests\CategoryIsDeleted_Should.cs" />
     <Compile Include="CategoryTests\CategoryName_Should.cs" />
-    <Compile Include="CategoryTests\ProductsCollection_Should.cs" />
+    <Compile Include="CategoryTests\CategoryProductsCollection_Should.cs" />
     <Compile Include="ProductTests\ModelNumber_Should.cs" />
     <Compile Include="ProductTests\ProductConstructor_Should.cs" />
     <Compile Include="ProductTests\ProductDescription_Should.cs" />
     <Compile Include="ProductTests\ProductId_Should.cs" />
     <Compile Include="ProductTests\ProductImageUrl_Should.cs" />
+    <Compile Include="ProductTests\ProductIsDeletedShould.cs" />
     <Compile Include="ProductTests\ProductName_Should.cs" />
     <Compile Include="ProductTests\ProductPrice_Should.cs" />
     <Compile Include="ProductTests\ProductQuantity_Should.cs" />
+    <Compile Include="ProductTests\SizeCollection_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SizeTests\ProductSizeCollection_Should.cs" />
     <Compile Include="SizeTests\SizeConstructor_Should.cs" />
     <Compile Include="SizeTests\SizeId_Should.cs" />
+    <Compile Include="SizeTests\SizeIzDeleted_Should.cs" />
     <Compile Include="SizeTests\SizeValue_Should.cs" />
     <Compile Include="SizeTests\SizeProductsCollection_Should.cs" />
+    <Compile Include="UserTests\UserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\OnLineShop.Data.Models\OnLineShop.Data.Models.csproj">
