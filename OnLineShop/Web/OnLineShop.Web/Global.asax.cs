@@ -1,6 +1,4 @@
-﻿using OnLineShop.Data;
-using OnLineShop.Data.Migrations;
-using System.Data.Entity;
+﻿using OnLineShop.Web.App_Start;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -11,10 +9,9 @@ namespace OnLineShop.Web
     {
         protected void Application_Start()
         {
-            // Database.SetInitializer<OnLineShopDbContext>(null);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OnLineShopDbContext, Configuration>());
-            OnLineShopDbContext.Create().Database.Initialize(true);
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OnLineShopDbContext>());
+            DbConfig.Initilize();
+            ViewEngineConfig.RegisterViewEngin(ViewEngines.Engines);
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
