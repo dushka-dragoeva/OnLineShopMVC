@@ -1,0 +1,17 @@
+﻿@model List<OnLineShop.Web.Models.Categories.CategoriesNavigationViewModel>
+
+
+@{
+    ViewBag.Title = "_CategoriesPartial";
+}
+
+<ul>
+    @foreach (var item in ViewBag.Categories)
+    {
+        <li>
+            <a href="">@item.Name</a>
+        </li>
+    }
+</ul>
+
+
