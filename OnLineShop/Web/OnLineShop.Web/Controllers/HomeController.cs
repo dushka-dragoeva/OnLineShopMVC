@@ -1,14 +1,16 @@
-﻿using AutoMapper;
-using OnLineShop.Data.Models;
-using OnLineShop.Data.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using AutoMapper;
+
+using OnLineShop.Data.Models;
+using OnLineShop.Data.Services;
 using OnLineShop.Web.Models.Products;
 using OnLineShop.Web.Models.Categories;
+using OnLineShop.Common.Constants;
 
 namespace OnLineShop.Web.Controllers
 {
@@ -26,13 +28,21 @@ namespace OnLineShop.Web.Controllers
 
         public ActionResult Index()
         {
-            var products = this.productService.GetAllWithCategoryBrand().ToArray();
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult LatestProducts()
+        {
+            var products = this.productService.GetAllWithCategoryBrand().ToList();
 
             Mapper.Initialize(cfg => cfg.CreateMap<Product, ProductsViewModel>());
 
-            ProductsViewModel[] arrayDest = Mapper.Map<Product[], ProductsViewModel[]>(products);
+            List<ProductsViewModel> productsView = Mapper.Map<List<Product>, List<ProductsViewModel>>(products);
 
-            return View();
+            ViewBag.Products = productsView;
+
+            return PartialView(PartialConstants.ProductsPartial, productsView);
         }
 
         public ActionResult About()
@@ -45,12 +55,12 @@ namespace OnLineShop.Web.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            
+
             return View();
         }
 
-        //[ChildActionOnly]
-        public ActionResult CategoriesNavigatin() 
+        [ChildActionOnly]
+        public ActionResult CategoriesNavigation()
         {
             var categories = this.categoryService.GetAll().ToList();
 
@@ -60,7 +70,7 @@ namespace OnLineShop.Web.Controllers
 
             ViewBag.Categories = navigationCategories;
 
-            return View("_CategoriesPartial", navigationCategories);
+            return PartialView("_CategoriesPartial", navigationCategories);
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model string
+
+@{ 
+    string classToUse = "form-control";
+    // custom class is passed in view as anonimus object  @Html.TextBoxFor(m=>m.Name, new {customclass="alabala"})
+    //if (ViewData["customclass"] != null)
+    //{
+    //    classToUse = (string)ViewData["customclass"];
+
+    //}
+
+    if (ViewBag.CustomClass != null)
+    {
+        classToUse = (string)ViewBag.CustomClass;
+
+    }
+}
+
+<div class="row">
+    @Html.LabelFor(m => m)
+    @Html.TextBoxFor(m => m, new { @class = "@classToUse" })
+</div>

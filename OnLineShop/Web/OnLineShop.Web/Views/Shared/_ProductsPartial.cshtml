@@ -1,0 +1,10 @@
+﻿@model List<OnLineShop.Web.Models.Products.ProductsViewModel>
+
+<ul>
+    @foreach (var item in ViewBag.Products)
+    {
+        <li>
+            <a href="">@item.Name</a>
+        </li>
+    }
+</ul>

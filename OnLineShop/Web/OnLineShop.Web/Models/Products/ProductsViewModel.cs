@@ -1,5 +1,6 @@
 ﻿using OnLineShop.Data.Models;
 using OnLineShop.Web.Infrastructure.AutoMapper.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnLineShop.Web.Models.Products
 {
@@ -15,6 +16,7 @@ namespace OnLineShop.Web.Models.Products
 
         public string BrandName { get; set; }
 
+        [DataType(DataType.Currency)]
         public decimal? Price { get; set; }
     }
 }

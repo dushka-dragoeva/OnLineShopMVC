@@ -17,11 +17,12 @@ namespace OnLineShop.Web.Controllers
         }
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult CategoryDetails(int categoryId)
         {
-            var categories = this.categoryService.GetAll();
+            var categories = this.categoryService.GetById(categoryId);
 
             return View(categories);
         }
+
     }
 }

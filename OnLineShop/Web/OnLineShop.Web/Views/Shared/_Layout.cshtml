@@ -29,6 +29,12 @@
             </div>
         </div>
     </div>
+    <br />
+
+    @Html.Action("CategoriesNavigation")
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -39,6 +45,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+  
     @RenderSection("scripts", required: false)
 </body>
 </html>
