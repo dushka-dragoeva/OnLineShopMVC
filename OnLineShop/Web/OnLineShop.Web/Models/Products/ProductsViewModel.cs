@@ -7,9 +7,9 @@ namespace OnLineShop.Web.Models.Products
     public class ProductsViewModel :IMapFrom<Product>
     {
         public int Id { get; set; }
-
+        
         public string Name { get; set; }
-
+                
         public string PictureUrl { get; set; }
 
         public string CategoryName { get; set; }

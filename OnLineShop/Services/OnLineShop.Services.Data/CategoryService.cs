@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace OnLineShop.Data.Services
 {
-    public class CategoryService //: ICategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly IOnLineShopDbContext Context;
 
@@ -13,18 +13,18 @@ namespace OnLineShop.Data.Services
             this.Context = context;
         }
 
-        //public int Insert(Category category)
-        //{
-        //    this.Context.Categories.Add(category);
-        //    return this.Context.SaveChanges();
-        //}
+        public int Insert(Category category)
+        {
+            this.Context.Categories.Add(category);
+            return this.Context.SaveChanges();
+        }
 
-        //public int Delete(int? id)
-        //{
-        //    var entity = this.GetById(id);
-        //    entity.IsDeleted = true;
-        //    return this.Context.SaveChanges();
-        //}
+        public int Delete(int? id)
+        {
+            var entity = this.GetById(id);
+            entity.IsDeleted = true;
+            return this.Context.SaveChanges();
+        }
 
         public IQueryable<Category> GetAll()
         {
@@ -50,19 +50,19 @@ namespace OnLineShop.Data.Services
             return id.HasValue ?category : null;
         }
 
-        //public Category GetByName(string name)
-        //{
-        //    return this.Context.Categories.Find(name);
-        //}
+        public Category GetByName(string name)
+        {
+            return this.Context.Categories.Find(name);
+        }
 
-        //public int Update(Category category)
-        //{
+        public int Update(Category category)
+        {
 
-        //    Category categoryToUpdate = this.Context.Categories.Find(category.Id);
-        //    this.Context.Entry(categoryToUpdate).CurrentValues.SetValues(category);
+            Category categoryToUpdate = this.Context.Categories.Find(category.Id);
+            this.Context.Entry(categoryToUpdate).CurrentValues.SetValues(category);
 
-        //    return this.Context.SaveChanges();
-        //}
+            return this.Context.SaveChanges();
+        }
     }
 }
 

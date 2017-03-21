@@ -1,7 +1,6 @@
 ﻿using OnLineShop.Data.Models;
 using OnLineShop.Data.Services.Contracts;
 using System.Linq;
-using System;
 using System.Data.Entity;
 
 namespace OnLineShop.Data.Services
@@ -17,17 +16,11 @@ namespace OnLineShop.Data.Services
 
         public IQueryable<Product> GetAllWithCategoryBrand()
         {
-            //var pr = Context.Products
-            //    .Where(p => p.IsDeleted == false)
-            //     .Include(p => p.Brand)
-            //     .Include(p => p.Category);
-
             return this.Context.Products
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
                  .Include(p => p.Category);
         }
-
 
         public IQueryable<Product> GetAllByCategory(int categoryId)
         {

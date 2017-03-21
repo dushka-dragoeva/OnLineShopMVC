@@ -74,6 +74,8 @@
     <Compile Include="CategoryTests\CategoryIsDeleted_Should.cs" />
     <Compile Include="CategoryTests\CategoryName_Should.cs" />
     <Compile Include="CategoryTests\CategoryProductsCollection_Should.cs" />
+    <Compile Include="OnLineDbContextTests\Constructor_Should.cs" />
+    <Compile Include="OnLineDbContextTests\Create_Should.cs" />
     <Compile Include="ProductTests\ModelNumber_Should.cs" />
     <Compile Include="ProductTests\ProductConstructor_Should.cs" />
     <Compile Include="ProductTests\ProductDescription_Should.cs" />
