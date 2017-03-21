@@ -349,15 +349,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\OnLineShop.Common.Constants\OnLineShop.Common.Constants.csproj">
-      <Project>{47D3D32E-4834-4642-8FE8-825EB3FEFBCA}</Project>
+      <Project>{47d3d32e-4834-4642-8fe8-825eb3fefbca}</Project>
       <Name>OnLineShop.Common.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\OnLineShop.Data.Models\OnLineShop.Data.Models.csproj">
-      <Project>{056E42D9-7AB6-4346-92AF-167BE6F540B9}</Project>
+      <Project>{056e42d9-7ab6-4346-92af-167be6f540b9}</Project>
       <Name>OnLineShop.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\OnLineShop.Data\OnLineShop.Data.csproj">
-      <Project>{23C3BD06-F39E-409B-9F23-C8B3BDC0957E}</Project>
+      <Project>{23c3bd06-f39e-409b-9f23-c8b3bdc0957e}</Project>
       <Name>OnLineShop.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\OnLineShop.Services.Common\OnLineShop.Services.Common.csproj">

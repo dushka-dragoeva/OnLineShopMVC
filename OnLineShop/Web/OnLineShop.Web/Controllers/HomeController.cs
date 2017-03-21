@@ -39,15 +39,15 @@ namespace OnLineShop.Web.Controllers
         public ActionResult LatestProducts()
         {
             var products = this.productService.GetAllWithCategoryBrand().ToList();
-            
+
             //this.mappingService.Map<List<Product>>(products);
             //List<ProductsViewModel> productsView = new List<ProductsViewModel>();
-            //    this.mappingService.
-            //    Map<List< Product>, List<ProductsViewModel>>(products, productsView);
+            //this.mappingService.
+            //Map<List<Product>, List<ProductsViewModel>>(products, productsView);
 
-             Mapper.Initialize(cfg => cfg.CreateMap<Product, ProductsViewModel>());
+            Mapper.Initialize(cfg => cfg.CreateMap<Product, ProductsViewModel>());
 
-             List<ProductsViewModel> productsView = Mapper.Map<List<Product>, List<ProductsViewModel>>(products);
+            List<ProductsViewModel> productsView = Mapper.Map<List<Product>, List<ProductsViewModel>>(products);
 
             ViewBag.Products = productsView;
 
