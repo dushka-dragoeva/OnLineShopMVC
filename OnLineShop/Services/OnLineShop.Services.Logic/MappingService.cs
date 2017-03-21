@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using OnLineShop.Services.Logic.Contracts;
 
 namespace OnLineShop.Services.Logic
 {
-    public class MappingService
+    public class MappingService: IMappingService
     {
         public T Map<T>(object source)
         {

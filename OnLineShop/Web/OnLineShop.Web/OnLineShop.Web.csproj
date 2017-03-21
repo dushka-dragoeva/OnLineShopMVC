@@ -255,6 +255,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\10446_taupe.jpg" />
+    <Content Include="Content\Images\10704285_531231710341154_7446060005816611949_o.jpg" />
     <Content Include="Content\Images\14413-c.jpg" />
     <Content Include="Content\Images\14420-c .jpg" />
     <Content Include="Content\Images\6694-NOIR-10.jpg" />
@@ -271,6 +272,7 @@
     <Content Include="Content\Images\6759-1-BLANC-37.jpg" />
     <Content Include="Content\Images\Alefa.jpg" />
     <Content Include="Content\Images\index.jpg" />
+    <Content Include="Content\Images\logo.jpg" />
     <Content Include="Content\Images\R8052-NOIR-190.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -357,6 +359,10 @@
     <ProjectReference Include="..\..\Data\OnLineShop.Data\OnLineShop.Data.csproj">
       <Project>{23C3BD06-F39E-409B-9F23-C8B3BDC0957E}</Project>
       <Name>OnLineShop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\OnLineShop.Services.Common\OnLineShop.Services.Common.csproj">
+      <Project>{dbf2e7b1-a836-4aae-bdc4-f4fac60ba77c}</Project>
+      <Name>OnLineShop.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\OnLineShop.Services.Data\OnLineShop.Services.Data.csproj">
       <Project>{08329187-d558-400b-b78b-389bd0ea25ea}</Project>

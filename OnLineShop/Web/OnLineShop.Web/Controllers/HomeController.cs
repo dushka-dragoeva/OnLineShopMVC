@@ -11,19 +11,23 @@ using OnLineShop.Data.Services;
 using OnLineShop.Web.Models.Products;
 using OnLineShop.Web.Models.Categories;
 using OnLineShop.Common.Constants;
+using OnLineShop.Data.Services.Contracts;
+using OnLineShop.Services.Logic.Contracts;
 
 namespace OnLineShop.Web.Controllers
 {
     public class HomeController : Controller
     {
 
-        private readonly ProductService productService;
-        private readonly CategoryService categoryService;
+        private readonly IProductService productService;
+        private readonly ICategoryService categoryService;
+        private readonly IMappingService mappingService;
 
-        public HomeController(ProductService productService, CategoryService categoryService)
+        public HomeController(IProductService productService, ICategoryService categoryService, IMappingService mappingService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
+            this.mappingService = mappingService;
         }
 
         public ActionResult Index()
@@ -35,10 +39,15 @@ namespace OnLineShop.Web.Controllers
         public ActionResult LatestProducts()
         {
             var products = this.productService.GetAllWithCategoryBrand().ToList();
+            
+            //this.mappingService.Map<List<Product>>(products);
+            //List<ProductsViewModel> productsView = new List<ProductsViewModel>();
+            //    this.mappingService.
+            //    Map<List< Product>, List<ProductsViewModel>>(products, productsView);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<Product, ProductsViewModel>());
+             Mapper.Initialize(cfg => cfg.CreateMap<Product, ProductsViewModel>());
 
-            List<ProductsViewModel> productsView = Mapper.Map<List<Product>, List<ProductsViewModel>>(products);
+             List<ProductsViewModel> productsView = Mapper.Map<List<Product>, List<ProductsViewModel>>(products);
 
             ViewBag.Products = productsView;
 

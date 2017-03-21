@@ -22,3 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#background-navigation {
+    height: 300px;
+    margin-top: 25px;
+    background-image: url(Images/10704285_531231710341154_7446060005816611949_o.jpg);
+  
+}
+
+.navbar-inverse {
+    background-color: #571690;
+    color: black;
+
+}
