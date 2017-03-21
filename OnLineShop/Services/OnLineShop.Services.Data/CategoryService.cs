@@ -1,4 +1,5 @@
-﻿using OnLineShop.Data.Models;
+﻿using Bytes2you.Validation;
+using OnLineShop.Data.Models;
 using System.Data.Entity;
 using System.Linq;
 
@@ -10,6 +11,7 @@ namespace OnLineShop.Data.Services
 
         public CategoryService(IOnLineShopDbContext context)
         {
+            Guard.WhenArgument(context, nameof(context)).IsNull().Throw();
             this.Context = context;
         }
 
