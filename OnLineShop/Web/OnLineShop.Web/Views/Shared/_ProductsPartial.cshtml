@@ -4,7 +4,21 @@
     @foreach (var item in ViewBag.Products)
     {
         <li>
-            <a href="">@item.Name</a>
+            <div class="row"></div>
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                   <a><h3 class="panel-title">@item.Name</h3></a>
+                </div>
+                <div class="panel-body">
+                   
+                    <img src="@Url.Content(item.PictureUrl)" class="img-responsive" width="200" />
+                </div>
+                <div class="panel-footer">
+                <p class="col-md-6">Цена: @item.Price</p>
+                    <p class="pull-right col-md-6">Вижте повече</p>
+                </div>
+            </div>
         </li>
     }
 </ul>
