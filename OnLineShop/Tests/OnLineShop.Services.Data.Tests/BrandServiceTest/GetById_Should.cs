@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OnLineShop.Data;
 using OnLineShop.Data.Models;
-using OnLineShop.Data.Services;
+using OnLineShop.Services.Data;
 using System.Data.Entity;
 
 namespace OnLineShop.Services.Tests.BrandServiceTest

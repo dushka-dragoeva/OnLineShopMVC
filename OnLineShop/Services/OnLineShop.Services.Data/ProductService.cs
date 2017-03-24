@@ -1,9 +1,11 @@
-﻿using OnLineShop.Data.Models;
-using OnLineShop.Data.Services.Contracts;
-using System.Linq;
+﻿using System.Linq;
 using System.Data.Entity;
 
-namespace OnLineShop.Data.Services
+using OnLineShop.Data;
+using OnLineShop.Data.Models;
+using OnLineShop.Services.Data.Contracts;
+
+namespace OnLineShop.Services.Data
 {
     public class ProductService : IProductService
     {
@@ -14,6 +16,15 @@ namespace OnLineShop.Data.Services
             this.Context = context;
         }
 
+        public IQueryable<Product> GetLast12WithCategoryAndBrand()
+        {
+            return this.Context.Products
+                .Where(p => p.IsDeleted == false)
+                 .Include(p => p.Brand)
+                 .Include(p => p.Category)
+                 .Take(12);
+        }
+
         public IQueryable<Product> GetAllWithCategoryBrand()
         {
             return this.Context.Products
@@ -22,13 +33,13 @@ namespace OnLineShop.Data.Services
                  .Include(p => p.Category);
         }
 
-        public IQueryable<Product> GetAllByCategory(int categoryId)
-        {
-            return this.Context.Products
-                .Where(p => p.IsDeleted == false)
-                .Where(p => p.CategoryId == categoryId)
-                .Include(p => p.Brand);
-        }
+        //public IQueryable<Product> GetAllByCategory(int categoryId)
+        //{
+        //    return this.Context.Products
+        //        .Where(p => p.IsDeleted == false)
+        //        .Where(p => p.CategoryId == categoryId)
+        //        .Include(p => p.Brand);
+        //}
 
         public Product GetById(int? id)
         {
@@ -50,7 +61,6 @@ namespace OnLineShop.Data.Services
 
         public int Update(Product product)
         {
-
             Product productToUpdate = this.GetById(product.Id);
             this.Context.Entry(productToUpdate).CurrentValues.SetValues(product);
 

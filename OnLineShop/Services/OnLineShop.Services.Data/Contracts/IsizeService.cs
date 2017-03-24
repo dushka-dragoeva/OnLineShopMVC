@@ -1,7 +1,7 @@
 ﻿using OnLineShop.Data.Models;
 using System.Linq;
 
-namespace OnLineShop.Data.Services.Contracts
+namespace OnLineShop.Services.Data.Contracts
 {
     public interface ISizeService
     {

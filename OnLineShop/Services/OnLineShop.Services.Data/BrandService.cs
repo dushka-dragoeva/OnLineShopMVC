@@ -1,8 +1,10 @@
-﻿using OnLineShop.Data.Models;
-using OnLineShop.Data.Services.Contracts;
-using System.Linq;
+﻿using System.Linq;
 
-namespace OnLineShop.Data.Services
+using OnLineShop.Data;
+using OnLineShop.Data.Models;
+using OnLineShop.Services.Data.Contracts;
+
+namespace OnLineShop.Services.Data
 {
     public class BrandService : IBrandService
     {

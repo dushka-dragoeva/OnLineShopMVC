@@ -1,8 +1,9 @@
-﻿using OnLineShop.Data.Models;
-using OnLineShop.Data.Services.Contracts;
+﻿using OnLineShop.Data;
+using OnLineShop.Data.Models;
+using OnLineShop.Services.Data.Contracts;
 using System.Linq;
 
-namespace OnLineShop.Data.Services
+namespace OnLineShop.Services.Data
 {
     public class SizeService : ISizeService
 

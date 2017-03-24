@@ -4,7 +4,7 @@ using Moq;
 
 using NUnit.Framework;
 using OnLineShop.Data;
-using OnLineShop.Data.Services;
+using OnLineShop.Services.Data;
 
 
 namespace OnLineShop.Services.Data.Tests.CategoryServiseTests

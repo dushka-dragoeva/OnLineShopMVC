@@ -1,9 +1,11 @@
 ﻿using Bytes2you.Validation;
+using OnLineShop.Data;
 using OnLineShop.Data.Models;
+using OnLineShop.Services.Data.Contracts;
 using System.Data.Entity;
 using System.Linq;
 
-namespace OnLineShop.Data.Services
+namespace OnLineShop.Services.Data
 {
     public class CategoryService : ICategoryService
     {
@@ -33,13 +35,6 @@ namespace OnLineShop.Data.Services
             return this.Context.Categories.Where(c => c.IsDeleted == false);
         }
 
-        //public IQueryable<Category> GetAllWithProducts()
-        //{
-        //    return this.Context.Categories
-        //         .Where(c => c.IsDeleted == false)
-        //        .Include(c => c.Products);
-        //}
-
         public Category GetById(int? id)
         {
             return id.HasValue ? this.Context.Categories.Find(id) : null;
@@ -47,9 +42,13 @@ namespace OnLineShop.Data.Services
 
         public Category GetByIdWithProducts(int? id)
         {
-            var category = this.Context.Categories.Find(id);
+            Category category = this.Context.Categories
+                .Where(c => c.Id == id && c.IsDeleted == false)
+                             //                .Include(c => c.Products
+                             //.Select(p => p.IsDeleted == false))
+                             .FirstOrDefault();
 
-            return id.HasValue ?category : null;
+            return id.HasValue ? category : null;
         }
 
         public Category GetByName(string name)

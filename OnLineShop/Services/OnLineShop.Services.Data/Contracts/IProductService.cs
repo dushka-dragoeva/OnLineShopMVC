@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnLineShop.Data.Services.Contracts
+namespace OnLineShop.Services.Data.Contracts
 {
     public interface IProductService
     {
         IQueryable<Product> GetAllWithCategoryBrand();
 
-        IQueryable<Product> GetAllByCategory(int categoryId);
+       // IQueryable<Product> GetAllByCategory(int categoryId);
+
+        IQueryable<Product> GetLast12WithCategoryAndBrand();
 
         Product GetById(int? id);
 

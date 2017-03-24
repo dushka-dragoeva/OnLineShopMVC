@@ -1,0 +1,76 @@
+﻿@model OnLineShop.Web.Models.Products.ProductDetailsViewModel
+@using OnLineShop.Web.Infrastructure.Helpers
+
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Ajax.BeginForm("ProductDetails", null, new AjaxOptions()
+{
+    //UpdateTargetId = "movies-container",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST"
+}, new {@class= "form-group" }))
+
+{
+    @Html.AntiForgeryToken()
+    <div class="row" style="border:1px, solid, black">
+        <div class="col-md-12"><h3 class="text-center">@Model.Name</h3></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img id="image-details" src="@Url.Content(@Model.PictureUrl)" class="img-responsive" alt="pic" style="width:400px" />
+        </div>
+        <div class="col-md-7">
+
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">Каталожен №: @Model.ModelNumber</div>
+                <div class="col-md-6"></div>
+            </div>
+
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">Производител: @Model.BrandName</div>
+                <div class="col-md-6"></div>
+            </div>
+            <hr />
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">@Model.Description</div>
+                <div class="col-md-6"></div>
+            </div>
+            <hr />
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">Цена: @Model.Price лв.</div>
+                <div class="col-md-6"></div>
+            </div>
+
+            <div class="row" style="border:1px, solid, black">
+                <div class="col-md-6">
+                    @Html.EditorFor(m => m.Quantity)
+                </div>
+                <div class="col-md-6">
+                    <label for="sizes-drop-down" >Размери: </label>
+                    <select id="sizes-drop-down" class="form-control">
+                        @foreach (var size in @Model.Sizes)
+                {
+                            <option value="@size.Id">@size.Value</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div>
+                @Html.Submit(new { value = "Поръчай"})
+            </div>
+         
+
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    @Scripts.Render("~bundles/jqueryval")
+}

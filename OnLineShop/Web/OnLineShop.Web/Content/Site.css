@@ -25,13 +25,13 @@ textarea {
 
 #background-navigation {
     height: 300px;
-    margin-top: 25px;
-    background-image: url(Images/10704285_531231710341154_7446060005816611949_o.jpg);
   
+    background-image: url(Images/10704285_531231710341154_7446060005816611949_o.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
 }
 
 .navbar-inverse {
-    background-color: #571690;
+    background-color: #9a0064;
     color: black;
-
 }

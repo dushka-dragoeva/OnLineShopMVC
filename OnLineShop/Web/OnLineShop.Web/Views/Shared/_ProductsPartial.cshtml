@@ -1,24 +1,42 @@
 ﻿@model List<OnLineShop.Web.Models.Products.ProductsViewModel>
+<div class="row">
+    <ul>
+        @foreach (var item in @Model)
+        {
+            <li class="list-inline list-unstyled">
 
-<ul>
-    @foreach (var item in ViewBag.Products)
-    {
-        <li>
-            <div class="row"></div>
-            <div class="panel panel-default">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <div class="panel panel-info" style="padding-left:15px; padding-right:15px">
 
-                <div class="panel-heading">
-                   <a><h3 class="panel-title">@item.Name</h3></a>
-                </div>
-                <div class="panel-body">
-                   
-                    <img src="@Url.Content(item.PictureUrl)" class="img-responsive" width="200" />
-                </div>
-                <div class="panel-footer">
-                <p class="col-md-6">Цена: @item.Price</p>
-                    <p class="pull-right col-md-6">Вижте повече</p>
-                </div>
-            </div>
-        </li>
-    }
-</ul>
+                                <div class="row panel-heading">
+                                    <div class="panel-title text-center"><strong>@item.Name</strong></div>
+                                    <div class="row">
+                                        <div class="col-md-6">@item.BrandName</div>
+                                        <div class="col-md-6 text-right"> @item.CategoryName</div>
+                                    </div>
+
+
+                                </div>
+                                <a href="@Url.Action("ProductDetails", "Product", new {id=item.Id})">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <img src="@Url.Content(item.PictureUrl)" class="img-responsive" width="200" />
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <div class="row panel-footer ">
+
+                                    <div class="col-lg-6 badge text-left">@item.Price лв.</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+            </li>
+        }
+    </ul>
+</div>
+

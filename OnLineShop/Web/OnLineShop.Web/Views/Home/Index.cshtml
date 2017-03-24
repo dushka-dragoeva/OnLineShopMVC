@@ -3,11 +3,8 @@
 }
 
 @using OnLineShop.Common.Constants
-
-<h1>
-    Welcome!
-</h1>
-
-
+<div id="background-navigation" class="row"></div>
+@Html.Action("CategoriesNavigation")
+<h2 class="text-center">Най-нови продукти </h2>
 @Html.Action("LatestProducts", "Home");
 

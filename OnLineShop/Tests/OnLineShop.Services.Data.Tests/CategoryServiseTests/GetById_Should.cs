@@ -4,7 +4,7 @@ using Moq;
 
 using OnLineShop.Data;
 using OnLineShop.Data.Models;
-using OnLineShop.Data.Services;
+using OnLineShop.Services.Data;
 using NUnit.Framework;
 
 namespace OnLineShop.Services.Tests.CategoryServiseTests
@@ -35,7 +35,6 @@ namespace OnLineShop.Services.Tests.CategoryServiseTests
             contextMock.Setup(c => c.Categories).Returns(categorySetMock.Object);
             int categoryId = 1;
             Category category = new Category() { Id = categoryId, Name = "Category 1" };
-
 
             categorySetMock.Setup(b => b.Find(categoryId)).Returns(category);
 
