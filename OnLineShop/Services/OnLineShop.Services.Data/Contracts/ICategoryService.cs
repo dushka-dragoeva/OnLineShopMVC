@@ -1,11 +1,12 @@
 ﻿using OnLineShop.Data.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OnLineShop.Services.Data.Contracts
 {
     public interface ICategoryService
     {
-        IQueryable<Category> GetAll();
+        IEnumerable<Category> GetAll();
 
         Category GetById(int? id);
 

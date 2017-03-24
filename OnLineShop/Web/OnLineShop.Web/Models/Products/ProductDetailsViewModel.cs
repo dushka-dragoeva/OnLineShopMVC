@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using OnLineShop.Data.Models;
 using OnLineShop.Web.Infrastructure.AutoMapper.Contracts;
@@ -12,6 +13,24 @@ namespace OnLineShop.Web.Models.Products
     [ValidateAntiForgeryToken]
     public class ProductDetailsViewModel : IMapFrom<Product>
     {
+
+        public ProductDetailsViewModel()
+        {
+        }
+
+        public ProductDetailsViewModel(Product product)
+        {
+            this.Id = product.Id;
+            this.Name = product.Name;
+            this.PictureUrl = product.PictureUrl;
+            this.CategoryName = product.Category.Name;
+            this.BrandName = product.Brand.Name;
+            this.Price = product.Price;
+            this.Description = product.Description;
+            this.ModelNumber = product.ModelNumber;
+            this.Quantity = 0;
+            this.Sizes = product.Sizes.Select(s => new SizeViewModel(s)).ToList();
+        }
         private ICollection<SizeViewModel> sizes = new List<SizeViewModel>();
 
         public int Id { get; set; }
@@ -30,24 +49,14 @@ namespace OnLineShop.Web.Models.Products
 
         public decimal? Price { get; set; }
 
-        //[Required(ErrorMessage ="Полето {0} е задълвително")]
-        //[Range(
-        //    ValidationConstants.QuantityMinValue,
-        //    ValidationConstants.QuantityMaxValue,
-        //    ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
-       // [Display(Name = "Брой:")]
+        [Required(ErrorMessage = "Полето {0} е задължително")]
+        [Range(
+            ValidationConstants.QuantityMinValue,
+            ValidationConstants.QuantityMaxValue,
+            ErrorMessage = ValidationConstants.QuаntityOutOfRangeErrorMessage)]
+        [Display(Name = "Брой:")]
         public int Quantity { get; set; }
 
-        public virtual ICollection<SizeViewModel> Sizes
-        {
-            get
-            {
-                return this.sizes;
-            }
-            set
-            {
-                this.sizes = value;
-            }
-        }
+        public virtual IEnumerable<SizeViewModel> Sizes { get; set; }
     }
 }

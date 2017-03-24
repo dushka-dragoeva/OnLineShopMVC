@@ -1,60 +1,46 @@
-﻿using OnLineShop.Services.Data.Contracts;
+﻿using System.Web.Mvc;
+
+using Bytes2you.Validation;
+
+using OnLineShop.Data.Models;
+using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Models.Products;
-using OnLineShop.Web.Models.Sizes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+
 
 namespace OnLineShop.Web.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IProductService productService;
-        private readonly ProductDetailsViewModel productDetails;
 
-        public ProductController(IProductService productService, ProductDetailsViewModel productDetails)
+        public ProductController(IProductService productService)
         {
-            this.productService = productService;
-            this.productDetails = productDetails;
+            Guard.WhenArgument(productService, "productService").IsNull().Throw();
 
+            this.productService = productService;
         }
 
         // GET: Product
         [HttpGet]
         public ActionResult ProductDetails(int? id)
         {
-            var product = this.productService.GetById(id);
+            Product product = this.productService.GetById(id);
 
             if (product == null)
             {
 
-                return Redirect("/");
+                ViewBag.Message = $" Продукт с ID {id} не е намерен.";
+
+                return View();
             }
-
-            this.productDetails.Id = product.Id;
-            this.productDetails.Name = product.Name;
-            this.productDetails.PictureUrl = product.PictureUrl;
-            this.productDetails.BrandName = product.Brand.Name;
-            this.productDetails.Price = product.Price;
-
-            foreach (var size in product.Sizes)
+            else
             {
-                productDetails.Sizes.Add(new SizeViewModel
-                {
-                    Id = size.Id,
-                    Value = size.Value
-                });
+                ProductDetailsViewModel productDetails = new ProductDetailsViewModel(product);
+
+                return View(productDetails);
             }
-
-            this.productDetails.Description = product.Description;
-            this.productDetails.ModelNumber = product.ModelNumber;
-
-            return View(this.productDetails);
         }
-
-
+        
         // GET: Product
         [HttpPost]
         public ActionResult ProductDetails()

@@ -1,11 +1,12 @@
-﻿using OnLineShop.Data.Models;
-using System.Linq;
+﻿using System.Collections.Generic;
+
+using OnLineShop.Data.Models;
 
 namespace OnLineShop.Services.Data.Contracts
 {
     public interface IBrandService
     {
-        IQueryable<Brand> GetAll();
+        IEnumerable<Brand> GetAll();
 
         Brand GetById(int? id);
 

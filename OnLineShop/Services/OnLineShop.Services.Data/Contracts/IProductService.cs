@@ -9,11 +9,11 @@ namespace OnLineShop.Services.Data.Contracts
 {
     public interface IProductService
     {
-        IQueryable<Product> GetAllWithCategoryBrand();
+        IEnumerable<Product> GetAllWithCategoryBrand();
 
        // IQueryable<Product> GetAllByCategory(int categoryId);
 
-        IQueryable<Product> GetLast12WithCategoryAndBrand();
+        IEnumerable<Product> GetLast12WithCategoryAndBrand();
 
         Product GetById(int? id);
 

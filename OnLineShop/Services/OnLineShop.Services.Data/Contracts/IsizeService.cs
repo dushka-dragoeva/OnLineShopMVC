@@ -1,11 +1,12 @@
 ﻿using OnLineShop.Data.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OnLineShop.Services.Data.Contracts
 {
     public interface ISizeService
     {
-        IQueryable<Size> GetAll();
+        IEnumerable<Size> GetAll();
 
         Size GetById(int? id);
 

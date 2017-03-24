@@ -1,10 +1,10 @@
-﻿using Bytes2you.Validation;
-using OnLineShop.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using Bytes2you.Validation;
 using OnLineShop.Data.Contracts;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
-using System.Data.Entity;
-using System.Linq;
 
 namespace OnLineShop.Services.Data
 {
@@ -23,10 +23,9 @@ namespace OnLineShop.Services.Data
             this.dbContext = dbContext;
         }
 
-
-        public IQueryable<Category> GetAll()
+        public IEnumerable<Category> GetAll()
         {
-            return this.categorySetWrapper.All().Where(c => c.IsDeleted == false);
+            return this.categorySetWrapper.All().Where(c => c.IsDeleted == false).ToList();
         }
 
         public Category GetById(int? id)

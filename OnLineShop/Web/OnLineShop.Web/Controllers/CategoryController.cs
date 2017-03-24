@@ -1,15 +1,13 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+
 using System.Web.Mvc;
 
+using OnLineShop.Common.Constants;
+using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Models.Categories;
-using AutoMapper;
-using OnLineShop.Data.Models;
-using OnLineShop.Web.Models.Products;
+
 
 namespace OnLineShop.Web.Controllers
 {
@@ -17,7 +15,7 @@ namespace OnLineShop.Web.Controllers
     {
         private readonly ICategoryService categoryService;
         private readonly CategoryDetailsViewModel categoryDetails;
-     
+
         public CategoryController(ICategoryService categoryService, CategoryDetailsViewModel categoryDetails)
         {
             this.categoryService = categoryService;
@@ -27,29 +25,23 @@ namespace OnLineShop.Web.Controllers
         // GET: Categories
         public ActionResult CategoryDetails(int id)
         {
+            Category category = this.categoryService.GetById(id);
 
-            var category = this.categoryService.GetById(id);
+            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
 
-          
-            this.categoryDetails.Id = category.Id;
-            this.categoryDetails.Name = category.Name;
-            this.categoryDetails.Products = new List<ProductsViewModel>();
-
-            foreach (var product in category.Products)
-            {
-                this.categoryDetails.Products.Add(new ProductsViewModel
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    BrandName = product.Brand.Name,
-                    PictureUrl = product.PictureUrl,
-                    Price = product.Price,
-                    CategoryName = category.Name
-
-                });
-            }
             return View(this.categoryDetails);
         }
 
+        [ChildActionOnly]
+        public ActionResult ProductList(int id)
+        {
+            Category category = this.categoryService.GetById(id);
+
+            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
+
+            List<OnLineShop.Web.Models.Products.ProductsViewModel> products = categoryDetails.Products.ToList();
+
+            return PartialView(PartialConstants.ProductsPartial, products);
+        }
     }
 }

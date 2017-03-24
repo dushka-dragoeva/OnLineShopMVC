@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using System.Data.Entity;
-
+﻿using System.Data.Entity;
+using System.Linq;
+using System.Collections.Generic;
 using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
@@ -17,21 +17,23 @@ namespace OnLineShop.Services.Data
             this.Context = context;
         }
 
-        public IQueryable<Product> GetLast12WithCategoryAndBrand()
+        public IEnumerable<Product> GetLast12WithCategoryAndBrand()
         {
             return this.Context.Products
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
                  .Include(p => p.Category)
-                 .Take(12);
+                 .Take(12)
+                 .ToList();
         }
 
-        public IQueryable<Product> GetAllWithCategoryBrand()
+        public IEnumerable<Product> GetAllWithCategoryBrand()
         {
             return this.Context.Products
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
-                 .Include(p => p.Category);
+                 .Include(p => p.Category)
+                 .ToList();
         }
 
         //public IQueryable<Product> GetAllByCategory(int categoryId)

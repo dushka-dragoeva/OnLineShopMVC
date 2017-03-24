@@ -3,6 +3,7 @@ using OnLineShop.Data.Contracts;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace OnLineShop.Services.Data
 {
@@ -29,9 +30,9 @@ namespace OnLineShop.Services.Data
             return this.Context.SaveChanges();
         }
 
-        public IQueryable<Size> GetAll()
+        public IEnumerable<Size> GetAll()
         {
-            return this.Context.Sizes.Where(c => c.IsDeleted == false);
+            return this.Context.Sizes.Where(c => c.IsDeleted == false).ToList();
         }
 
         public Size GetById(int? id)

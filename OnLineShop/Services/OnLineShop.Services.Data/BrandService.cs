@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Data.Contracts;
@@ -29,7 +29,7 @@ namespace OnLineShop.Services.Data
             return this.Context.SaveChanges();
         }
 
-        public IQueryable<Brand> GetAll()
+        public IEnumerable<Brand> GetAll()
         {
             return this.Context.Brands.Where(c => c.IsDeleted == false);
         }
