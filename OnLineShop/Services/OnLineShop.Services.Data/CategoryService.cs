@@ -26,7 +26,7 @@ namespace OnLineShop.Services.Data
 
         public IQueryable<Category> GetAll()
         {
-            return this.categorySetWrapper.All.Where(c => c.IsDeleted == false);
+            return this.categorySetWrapper.All().Where(c => c.IsDeleted == false);
         }
 
         public Category GetById(int? id)

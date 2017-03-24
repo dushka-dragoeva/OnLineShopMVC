@@ -25,24 +25,23 @@ namespace OnLineShop.Data
             this.dbSet = efDbContext.Set<T>();
         }
 
-        public IQueryable<T> All
+        public IQueryable<T> All()
         {
-            get
-            {
+           
                 return this.dbSet;
-            }
+            
         }
 
         public IQueryable<T> AllWithInclude<TProperty>(Expression<Func<T, TProperty>> includeExpression)
         {
-            return this.All.Include(includeExpression);
+            return this.All().Include(includeExpression);
         }
 
         public IQueryable<T> AllWithTowInclude<TProperty>(
             Expression<Func<T, TProperty>> firstIncludeExpression, 
             Expression<Func<T, TProperty>> secondIncludeExpression)
         {
-            return this.All.Include(firstIncludeExpression).Include(secondIncludeExpression);
+            return this.All().Include(firstIncludeExpression).Include(secondIncludeExpression);
         }
 
         public IQueryable<T> AllWithThreeInclude<TProperty>(
@@ -51,7 +50,7 @@ namespace OnLineShop.Data
             Expression<Func<T, TProperty>> thirdIncludeExpression)
         {
             return this
-                .All
+                .All()
                 .Include(firstIncludeExpression)
                 .Include(secondIncludeExpression)
                 .Include(thirdIncludeExpression);

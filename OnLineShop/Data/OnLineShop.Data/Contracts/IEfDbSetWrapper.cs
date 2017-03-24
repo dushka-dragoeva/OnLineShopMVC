@@ -10,7 +10,7 @@ namespace OnLineShop.Data.Contracts
     public interface IEfDbSetWrapper<T>
        where T : class
     {
-        IQueryable<T> All { get; }
+        IQueryable<T> All();
 
         IQueryable<T> AllWithInclude<TProperty>(Expression<Func<T, TProperty>> includeExpression);
 
