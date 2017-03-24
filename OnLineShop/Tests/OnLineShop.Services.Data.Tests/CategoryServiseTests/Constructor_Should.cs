@@ -1,33 +1,49 @@
 ﻿using System;
 
 using Moq;
-
 using NUnit.Framework;
-using OnLineShop.Data;
-using OnLineShop.Services.Data;
 
+using OnLineShop.Data.Contracts;
+using OnLineShop.Data.Models;
 
 namespace OnLineShop.Services.Data.Tests.CategoryServiseTests
 {
     public class Constructor_Should
     {
         [Test]
-        public void CreateCategoryServices_IfParamsAreValid()
+        public void ReturnsAnInstance_WhenBothParametersAreNotNull()
         {
-            // Arrange & Act
-            var contextMock = new Mock<IOnLineShopDbContext>();
-            CategoryService categoryService = new CategoryService(contextMock.Object);
+            // Arrange 
+            var wrapperMock = new Mock<IEfDbSetWrapper<Category>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+
+            // Act
+            CategoryService categoryService = new CategoryService(wrapperMock.Object, dbContextMock.Object);
 
             // Assert
             Assert.That(categoryService, Is.InstanceOf<CategoryService>());
         }
 
         [Test]
-        public void ThrowArgumentNullException_IfPassedDataProviderIsNull()
+        public void ThrowArgumentNullException_WhenCategorySetWrapperIsNull()
         {
-            // Arrange & Act & Assert
+            // Arrange
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+
+            // Act & Assert
             Assert.Throws<ArgumentNullException>(
-                () => new CategoryService(null));
+                () => new CategoryService(null, dbContextMock.Object));
+        }
+
+        [Test]
+        public void ThrowArgumentNullException_WhenCategoryDbContextIsNull()
+        {
+            // Arrange
+            var wrapperMock = new Mock<IEfDbSetWrapper<Category>>();
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(
+                () => new CategoryService(wrapperMock.Object, null));
         }
     }
 }

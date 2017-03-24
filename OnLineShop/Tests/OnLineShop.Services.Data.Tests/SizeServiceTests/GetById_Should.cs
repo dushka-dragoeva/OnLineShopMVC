@@ -6,6 +6,7 @@ using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data;
 using NUnit.Framework;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Services.Tests.SizeServiceTests
 {

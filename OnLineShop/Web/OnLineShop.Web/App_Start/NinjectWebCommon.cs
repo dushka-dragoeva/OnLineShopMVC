@@ -11,6 +11,8 @@ namespace OnLineShop.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using NinjectModules;
+    using Data.Contracts;
+    using Data;
 
     public static class NinjectWebCommon 
     {
@@ -64,6 +66,7 @@ namespace OnLineShop.Web.App_Start
         {
             kernel.Load(new DataNinjectModule());
             kernel.Load(new ServiceNingectModule());
+            kernel.Bind<IOnLineShopDbContextSaveChanges>().To<OnLineShopDbContext>();
         }        
     }
 }

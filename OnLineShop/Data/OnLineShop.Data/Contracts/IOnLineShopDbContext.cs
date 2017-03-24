@@ -3,9 +3,9 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-namespace OnLineShop.Data
+namespace OnLineShop.Data.Contracts
 {
-    public interface IOnLineShopDbContext : IOnLineShopBaseDbContext
+    public interface IOnLineShopDbContext : IOnLineShopDbContextSaveChanges
     {
         IDbSet<User> Users { get; set; }
 

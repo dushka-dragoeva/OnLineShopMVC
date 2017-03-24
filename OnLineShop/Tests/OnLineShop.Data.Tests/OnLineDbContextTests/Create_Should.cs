@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 
 using OnLineShop.Data;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Data.Tests.OnLineDbContextTests
 {

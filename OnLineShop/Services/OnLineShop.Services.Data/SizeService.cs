@@ -1,4 +1,5 @@
 ﻿using OnLineShop.Data;
+using OnLineShop.Data.Contracts;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using System.Linq;

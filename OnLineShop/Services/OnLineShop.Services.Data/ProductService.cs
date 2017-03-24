@@ -4,6 +4,7 @@ using System.Data.Entity;
 using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Services.Data
 {

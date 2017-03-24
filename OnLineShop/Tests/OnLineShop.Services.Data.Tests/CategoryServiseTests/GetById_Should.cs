@@ -6,6 +6,7 @@ using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data;
 using NUnit.Framework;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Services.Tests.CategoryServiseTests
 {
@@ -13,38 +14,58 @@ namespace OnLineShop.Services.Tests.CategoryServiseTests
     public class GetById_Should
     {
         [Test]
-        public void ReturnNull_WhenIdParameterIsNull()
+        public void ReturnProduct_WhenIdIsValid()
         {
             // Arrange
             var contextMock = new Mock<IOnLineShopDbContext>();
-            CategoryService categoryService = new CategoryService(contextMock.Object);
+            var productSetMock = new Mock<IDbSet<Product>>();
+            contextMock.Setup(c => c.Products).Returns(productSetMock.Object);
+            int productId = 1;
+            Product product = new Product() { Id = productId, Name = "Product 1", ModelNumber = "1A", Quantity = 1, Price = 33.50m };
+
+            productSetMock.Setup(b => b.Find(productId)).Returns(product);
+
+            ProductService productService = new ProductService(contextMock.Object);
 
             // Act
-            Category categoryResult = categoryService.GetById(null);
+            Product productResult = productService.GetById(productId);
 
             // Assert
-            Assert.IsNull(categoryResult);
+            Assert.AreSame(product, productResult);
         }
 
         [Test]
-        public void ReturnCategory_WhenIdIsValid()
+        public void ReturnNull_WhenIdParameterIsNull()
         {
             // Arrange
-            var contextMock = new Mock<IOnLineShopDbContext>();
-            var categorySetMock = new Mock<IDbSet<Category>>();
-            contextMock.Setup(c => c.Categories).Returns(categorySetMock.Object);
-            int categoryId = 1;
-            Category category = new Category() { Id = categoryId, Name = "Category 1" };
+            var wrapperMock = new Mock<IEfDbSetWrapper<Category>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
 
-            categorySetMock.Setup(b => b.Find(categoryId)).Returns(category);
-
-            CategoryService categoryService = new CategoryService(contextMock.Object);
+            CategoryService categoryService = new CategoryService(wrapperMock.Object, dbContextMock.Object);
 
             // Act
-            Category categoryResult = categoryService.GetById(categoryId);
+            Category category = categoryService.GetById(null);
 
             // Assert
-            Assert.AreSame(category, categoryResult);
+            Assert.IsNull(category);
+        }
+
+        [Test]
+        public void ReturnNull_WhenThereIsNoModelWithThePassedId()
+        {
+            // Arrange
+            var wrapperMock = new Mock<IEfDbSetWrapper<Category>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+            int id = 1;
+
+            CategoryService categoryService = new CategoryService(wrapperMock.Object, dbContextMock.Object);
+            wrapperMock.Setup(m => m.GetById(id)).Returns((Category)null);
+
+            // Act
+            Category category = categoryService.GetById(id);
+
+            // Assert
+            Assert.IsNull(category);
         }
     }
 }

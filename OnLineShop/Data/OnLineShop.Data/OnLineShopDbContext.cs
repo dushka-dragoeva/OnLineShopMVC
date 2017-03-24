@@ -5,12 +5,12 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 using OnLineShop.Data.Models;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Data
 {
-    public class OnLineShopDbContext : IdentityDbContext<User>, IOnLineShopDbContext
+    public class OnLineShopDbContext : IdentityDbContext<User>, IOnLineShopDbContext,IOnLineShopDbContextSaveChanges
     {
-
         public OnLineShopDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

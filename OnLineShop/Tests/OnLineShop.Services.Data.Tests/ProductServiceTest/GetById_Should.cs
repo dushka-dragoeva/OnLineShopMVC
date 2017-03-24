@@ -6,6 +6,7 @@ using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data;
 using NUnit.Framework;
+using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Services.Tests.ProductServiceTest
 {
@@ -17,13 +18,13 @@ namespace OnLineShop.Services.Tests.ProductServiceTest
         {
             // Arrange
             var contextMock = new Mock<IOnLineShopDbContext>();
-            CategoryService categoryService = new CategoryService(contextMock.Object);
+            ProductService productService = new ProductService(contextMock.Object);
 
             // Act
-            Category categoryResult = categoryService.GetById(null);
+            Product productResult = productService.GetById(null);
 
             // Assert
-            Assert.IsNull(categoryResult);
+            Assert.IsNull(productResult);
         }
 
         [Test]

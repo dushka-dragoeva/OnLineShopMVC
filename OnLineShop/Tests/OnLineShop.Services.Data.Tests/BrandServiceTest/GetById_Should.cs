@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using OnLineShop.Data;
+using OnLineShop.Data.Contracts;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data;
 using System.Data.Entity;

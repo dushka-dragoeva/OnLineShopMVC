@@ -7,11 +7,9 @@ namespace OnLineShop.Services.Data.Contracts
     {
         IQueryable<Category> GetAll();
 
-      //  IQueryable<Category> GetAllWithProducts();
-
         Category GetById(int? id);
 
-        Category GetByName(string name);
+        //Category GetByName(string name);
 
         int Update(Category category);
 
