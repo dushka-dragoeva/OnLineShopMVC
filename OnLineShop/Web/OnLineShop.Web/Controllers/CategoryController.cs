@@ -14,12 +14,11 @@ namespace OnLineShop.Web.Controllers
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
-        private readonly CategoryDetailsViewModel categoryDetails;
 
-        public CategoryController(ICategoryService categoryService, CategoryDetailsViewModel categoryDetails)
+
+        public CategoryController(ICategoryService categoryService)
         {
             this.categoryService = categoryService;
-            this.categoryDetails = categoryDetails;
         }
 
         // GET: Categories
@@ -29,7 +28,7 @@ namespace OnLineShop.Web.Controllers
 
             CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
 
-            return View(this.categoryDetails);
+            return View(categoryDetails);
         }
 
         [ChildActionOnly]
@@ -42,6 +41,17 @@ namespace OnLineShop.Web.Controllers
             List<OnLineShop.Web.Models.Products.ProductsViewModel> products = categoryDetails.Products.ToList();
 
             return PartialView(PartialConstants.ProductsPartial, products);
+        }
+
+        [ChildActionOnly]
+        public ActionResult CategoriesNavigation()
+        {
+            var cat = categoryService.GetAll().ToList();
+
+            var navigationCategories = this.categoryService.GetAll()
+                                             .Select(c => new CategoriesNavigationViewModel(c)).ToList();
+
+            return PartialView("_CategoriesPartial", navigationCategories);
         }
     }
 }

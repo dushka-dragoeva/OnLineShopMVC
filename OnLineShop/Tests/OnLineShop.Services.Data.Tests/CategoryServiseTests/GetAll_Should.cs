@@ -38,23 +38,6 @@ namespace OnLineShop.Services.Data.Tests.CategoryServiseTests
         }
 
         [Test]
-        public void ReturnIQueryable_IfCalled()
-        {
-            // Arrange
-            var wrapperMock = new Mock<IEfDbSetWrapper<Category>>();
-            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
-            CategoryService categoryService = new CategoryService(wrapperMock.Object, dbContextMock.Object);
-
-            // Act
-            IEnumerable<Category> expectedCategoriesResult = new List<Category>() { new Category(), new Category() };
-            wrapperMock.Setup(rep => rep.All()).Returns(() => expectedCategoriesResult.AsQueryable());
-
-
-            // Assert
-            Assert.IsInstanceOf<IQueryable<Category>>(categoryService.GetAll());
-        }
-
-        [Test]
         public void ReturnCorrectCollection_IfCalled()
         {
             // Arrange
