@@ -4,48 +4,61 @@ using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using System.Linq;
 using System.Collections.Generic;
+using Bytes2you.Validation;
 
 namespace OnLineShop.Services.Data
 {
     public class SizeService : ISizeService
 
     {
-        private readonly IOnLineShopDbContext Context;
+        private IEfDbSetWrapper<Size> sizeSetWrapper;
+        private IOnLineShopDbContextSaveChanges dbContext;
 
-        public SizeService(IOnLineShopDbContext context)
+        public SizeService(IEfDbSetWrapper<Size> SizeSetWrapper, IOnLineShopDbContextSaveChanges dbContext)
         {
-            this.Context = context;
-        }
+            Guard.WhenArgument(SizeSetWrapper, "SizeSetWrapper").IsNull().Throw();
+            Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
 
-        public int Insert(Size size)
-        {
-            this.Context.Sizes.Add(size);
-            return this.Context.SaveChanges();
-        }
-
-        public int Delete(int? id)
-        {
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            return this.Context.SaveChanges();
+            this.sizeSetWrapper = SizeSetWrapper;
+            this.dbContext = dbContext;
         }
 
         public IEnumerable<Size> GetAll()
         {
-            return this.Context.Sizes.Where(c => c.IsDeleted == false).ToList();
+            return this.sizeSetWrapper
+                .All()
+                .Where(c => c.IsDeleted == false)
+                .ToList();
         }
 
         public Size GetById(int? id)
         {
-            return id.HasValue ? Context.Sizes.Find(id) : null;
+            return id.HasValue ? this.sizeSetWrapper.GetById(id) : null;
         }
 
         public int Update(Size Size)
         {
-            Size SizeToUpdate = this.Context.Sizes.Find(Size.Id);
-            this.Context.Entry(SizeToUpdate).CurrentValues.SetValues(Size);
 
-            return this.Context.SaveChanges();
+            Size sizeToUpdate = this.sizeSetWrapper.GetById(Size.Id);
+            this.sizeSetWrapper.Update(sizeToUpdate);
+
+            return this.dbContext.SaveChanges();
+        }
+
+        public int Insert(Size Size)
+        {
+            this.sizeSetWrapper.Add(Size);
+            return this.dbContext.SaveChanges();
+        }
+
+        public int Delete(int? id)
+        {
+            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+
+            var entity = this.GetById(id);
+            entity.IsDeleted = true;
+            this.sizeSetWrapper.Update(entity);
+            return this.dbContext.SaveChanges();
         }
     }
 }

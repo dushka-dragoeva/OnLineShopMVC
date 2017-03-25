@@ -4,53 +4,60 @@ using System.Linq;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Data.Contracts;
+using Bytes2you.Validation;
 
 namespace OnLineShop.Services.Data
 {
     public class BrandService : IBrandService
     {
-        private readonly IOnLineShopDbContext Context;
+        private IEfDbSetWrapper<Brand> brandSetWrapper;
+        private IOnLineShopDbContextSaveChanges dbContext;
 
-        public BrandService(IOnLineShopDbContext context)
+        public BrandService(IEfDbSetWrapper<Brand> brandSetWrapper, IOnLineShopDbContextSaveChanges dbContext)
         {
-            this.Context = context;
-        }
+            Guard.WhenArgument(brandSetWrapper, "BrandSetWrapper").IsNull().Throw();
+            Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
 
-        public int Insert(Brand Brand)
-        {
-            this.Context.Brands.Add(Brand);
-            return this.Context.SaveChanges();
-        }
-
-        public int Delete(int? id)
-        {
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            return this.Context.SaveChanges();
+            this.brandSetWrapper = brandSetWrapper;
+            this.dbContext = dbContext;
         }
 
         public IEnumerable<Brand> GetAll()
         {
-            return this.Context.Brands.Where(c => c.IsDeleted == false);
+            return this.brandSetWrapper
+                .All()
+                .Where(c => c.IsDeleted == false)
+                .ToList();
         }
 
         public Brand GetById(int? id)
         {
-            return id.HasValue ? this.Context.Brands.Find(id) : null;
-        }
-
-        public Brand GetByName(string name)
-        {
-            return this.Context.Brands.Find(name);
+            return id.HasValue ? this.brandSetWrapper.GetById(id) : null;
         }
 
         public int Update(Brand Brand)
         {
 
-            Brand BrandToUpdate = this.Context.Brands.Find(Brand.Id);
-            this.Context.Entry(BrandToUpdate).CurrentValues.SetValues(Brand);
+            Brand brandToUpdate = this.brandSetWrapper.GetById(Brand.Id);
+            this.brandSetWrapper.Update(brandToUpdate);
 
-            return this.Context.SaveChanges();
+            return this.dbContext.SaveChanges();
+        }
+
+        public int Insert(Brand Brand)
+        {
+            this.brandSetWrapper.Add(Brand);
+            return this.dbContext.SaveChanges();
+        }
+
+        public int Delete(int? id)
+        {
+            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+
+            var entity = this.GetById(id);
+            entity.IsDeleted = true;
+            this.brandSetWrapper.Update(entity);
+            return this.dbContext.SaveChanges();
         }
     }
 }

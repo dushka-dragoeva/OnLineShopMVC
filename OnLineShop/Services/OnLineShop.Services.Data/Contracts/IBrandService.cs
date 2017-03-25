@@ -10,7 +10,7 @@ namespace OnLineShop.Services.Data.Contracts
 
         Brand GetById(int? id);
 
-        Brand GetByName(string name);
+       // Brand GetByName(string name);
 
         int Update(Brand Brand);
 

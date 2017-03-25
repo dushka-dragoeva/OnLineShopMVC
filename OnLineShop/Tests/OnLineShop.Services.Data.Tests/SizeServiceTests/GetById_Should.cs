@@ -1,11 +1,8 @@
-﻿using System.Data.Entity;
+﻿using Moq;
+using NUnit.Framework;
 
-using Moq;
-
-using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data;
-using NUnit.Framework;
 using OnLineShop.Data.Contracts;
 
 namespace OnLineShop.Services.Tests.SizeServiceTests
@@ -14,38 +11,41 @@ namespace OnLineShop.Services.Tests.SizeServiceTests
     public class GetById_Should
     {
         [Test]
-        public void ReturnNull_WhenIdParameterIsNull()
-        {
-            // Arrange
-            var contextMock = new Mock<IOnLineShopDbContext>();
-            SizeService sizeService = new SizeService(contextMock.Object);
-
-            // Act
-            Size sizeResult = sizeService.GetById(null);
-
-            // Assert
-            Assert.IsNull(sizeResult);
-        }
-
-        [Test]
         public void ReturnSize_WhenIdIsValid()
         {
             // Arrange
-            var contextMock = new Mock<IOnLineShopDbContext>();
-            var sizeSetMock = new Mock<IDbSet<Size>>();
-            contextMock.Setup(c => c.Sizes).Returns(sizeSetMock.Object);
+            var wrapperMock = new Mock<IEfDbSetWrapper<Size>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+
             int sizeId = 1;
-            Size size = new Size() { Id = sizeId, Value = "S" };
+            Size size = new Size() { Id = sizeId, Value = "Size 1" };
 
-            sizeSetMock.Setup(b => b.Find(sizeId)).Returns(size);
+            wrapperMock.Setup(m => m.GetById(sizeId)).Returns(size);
 
-            SizeService sizeService = new SizeService(contextMock.Object);
+            SizeService sizeService = new SizeService(wrapperMock.Object, dbContextMock.Object);
+
 
             // Act
-            Size sizeResult = sizeService.GetById(sizeId);
+            Size SizeResult = sizeService.GetById(sizeId);
 
             // Assert
-            Assert.AreSame(size, sizeResult);
+            Assert.AreSame(size, SizeResult);
+        }
+
+        [Test]
+        public void ReturnNull_WhenIdParameterIsNull()
+        {
+            // Arrange
+
+            var wrapperMock = new Mock<IEfDbSetWrapper<Size>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+            SizeService SizeService = new SizeService(wrapperMock.Object, dbContextMock.Object);
+
+            // Act
+            Size SizeResult = SizeService.GetById(null);
+
+            // Assert
+            Assert.IsNull(SizeResult);
         }
     }
 }
