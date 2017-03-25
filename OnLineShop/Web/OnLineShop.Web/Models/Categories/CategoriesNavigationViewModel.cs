@@ -1,19 +1,17 @@
-﻿using OnLineShop.Common.Constants;
+﻿using System.Web.Mvc;
+
 using OnLineShop.Data.Models;
-using OnLineShop.Web.Infrastructure.AutoMapper.Contracts;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace OnLineShop.Web.Models.Categories
 {
 
-    public class CategoriesNavigationViewModel : IMapFrom<Category>
+    public class CategoriesNavigationViewModel
     {
         public CategoriesNavigationViewModel()
         {
         }
 
-        public CategoriesNavigationViewModel( Category category)
+        public CategoriesNavigationViewModel(Category category)
         {
             if (category != null)
             {

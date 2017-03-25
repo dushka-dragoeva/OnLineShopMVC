@@ -369,17 +369,9 @@
       <Project>{23c3bd06-f39e-409b-9f23-c8b3bdc0957e}</Project>
       <Name>OnLineShop.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\OnLineShop.Services.Common\OnLineShop.Services.Common.csproj">
-      <Project>{dbf2e7b1-a836-4aae-bdc4-f4fac60ba77c}</Project>
-      <Name>OnLineShop.Services.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\OnLineShop.Services.Data\OnLineShop.Services.Data.csproj">
       <Project>{08329187-d558-400b-b78b-389bd0ea25ea}</Project>
       <Name>OnLineShop.Services.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\OnLineShop.Services.Logic\OnLineShop.Services.Logic.csproj">
-      <Project>{e2abb2d2-d8ea-42d7-b66a-5ab20738eee9}</Project>
-      <Name>OnLineShop.Services.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\OnLineShop.Web.Infrastructure\OnLineShop.Web.Infrastructure.csproj">
       <Project>{2f9a69be-2e11-4eb1-91fd-869876f80d1b}</Project>

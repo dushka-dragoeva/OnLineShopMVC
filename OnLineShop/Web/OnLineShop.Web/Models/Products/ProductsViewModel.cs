@@ -1,10 +1,9 @@
 ﻿using OnLineShop.Data.Models;
-using OnLineShop.Web.Infrastructure.AutoMapper.Contracts;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnLineShop.Web.Models.Products
 {
-    public class ProductsViewModel : IMapFrom<Product>
+    public class ProductsViewModel
     {
         public ProductsViewModel()
         {

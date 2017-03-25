@@ -6,7 +6,7 @@ using OnLineShop.Web.Models.Products;
 
 namespace OnLineShop.Web.Models.Categories
 {
-    public class CategoryDetailsViewModel 
+    public class CategoryDetailsViewModel
     {
         public CategoryDetailsViewModel()
         {

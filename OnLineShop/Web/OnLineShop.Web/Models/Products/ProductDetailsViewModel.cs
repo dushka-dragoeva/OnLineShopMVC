@@ -2,7 +2,6 @@
 using System.Linq;
 
 using OnLineShop.Data.Models;
-using OnLineShop.Web.Infrastructure.AutoMapper.Contracts;
 using System.ComponentModel.DataAnnotations;
 using OnLineShop.Common.Constants;
 using System.Web.Mvc;
@@ -11,7 +10,7 @@ using OnLineShop.Web.Models.Sizes;
 namespace OnLineShop.Web.Models.Products
 {
     [ValidateAntiForgeryToken]
-    public class ProductDetailsViewModel : IMapFrom<Product>
+    public class ProductDetailsViewModel
     {
 
         public ProductDetailsViewModel()

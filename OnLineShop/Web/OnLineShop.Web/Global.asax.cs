@@ -1,5 +1,4 @@
 ﻿using OnLineShop.Web.App_Start;
-using OnLineShop.Web.Infrastructure.AutoMapper;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -13,8 +12,7 @@ namespace OnLineShop.Web
         {
             DbConfig.Initilize();
             ViewEngineConfig.RegisterViewEngin(ViewEngines.Engines);
-            AutoMapperConfig.Config(Assembly.GetExecutingAssembly());
-
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

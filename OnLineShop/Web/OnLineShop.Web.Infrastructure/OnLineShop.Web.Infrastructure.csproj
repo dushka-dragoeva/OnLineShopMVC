@@ -77,9 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="AutoMapper\Contracts\IHaveCustomMappings.cs" />
-    <Compile Include="AutoMapper\Contracts\IMapFrom.cs" />
     <Compile Include="Helpers\HtmlExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

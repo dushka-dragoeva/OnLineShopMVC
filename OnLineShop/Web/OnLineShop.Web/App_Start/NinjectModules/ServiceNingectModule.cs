@@ -1,8 +1,6 @@
 ﻿using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Conventions.Syntax;
 using Ninject.Modules;
-using Ninject.Web.Common;
-using OnLineShop.Services.Logic;
 
 namespace OnLineShop.Web.App_Start.NinjectModules
 {
@@ -18,8 +16,7 @@ namespace OnLineShop.Web.App_Start.NinjectModules
             binding
                 .FromAssembliesMatching("*.Services.*")
                 .SelectAllClasses()
-                .BindDefaultInterface()
-                .ConfigureFor<MappingService>(c => c.InRequestScope()); ;
+                .BindDefaultInterface();
         }
     }
 }

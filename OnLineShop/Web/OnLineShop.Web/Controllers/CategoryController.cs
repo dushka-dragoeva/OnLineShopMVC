@@ -7,7 +7,7 @@ using OnLineShop.Common.Constants;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Models.Categories;
-
+using Bytes2you.Validation;
 
 namespace OnLineShop.Web.Controllers
 {
@@ -18,29 +18,18 @@ namespace OnLineShop.Web.Controllers
 
         public CategoryController(ICategoryService categoryService)
         {
+            Guard.WhenArgument(categoryService, "categoryService").IsNull().Throw();
             this.categoryService = categoryService;
         }
 
         // GET: Categories
-        public ActionResult CategoryDetails(int id)
+        public ActionResult CategoryDetails(int? id)
         {
             Category category = this.categoryService.GetById(id);
 
             CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
 
             return View(categoryDetails);
-        }
-
-        [ChildActionOnly]
-        public ActionResult ProductList(int id)
-        {
-            Category category = this.categoryService.GetById(id);
-
-            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
-
-            List<OnLineShop.Web.Models.Products.ProductsViewModel> products = categoryDetails.Products.ToList();
-
-            return PartialView(PartialConstants.ProductsPartial, products);
         }
 
         [ChildActionOnly]
@@ -53,5 +42,19 @@ namespace OnLineShop.Web.Controllers
 
             return PartialView("_CategoriesPartial", navigationCategories);
         }
+
+        [ChildActionOnly]
+        public ActionResult ProductList(int? id)
+        {
+            Category category = this.categoryService.GetById(id);
+
+            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
+
+            List<OnLineShop.Web.Models.Products.ProductsViewModel> products = categoryDetails.Products.ToList();
+
+            return PartialView(PartialConstants.ProductsPartial, products);
+        }
+
+        
     }
 }
