@@ -82,6 +82,9 @@
     <Compile Include="CategoryTests\CategoryIsDeleted_Should.cs" />
     <Compile Include="CategoryTests\CategoryName_Should.cs" />
     <Compile Include="CategoryTests\CategoryProductsCollection_Should.cs" />
+    <Compile Include="EfDbSetWrapper.Tests\All_Should.cs" />
+    <Compile Include="EfDbSetWrapper.Tests\EfDbSetWrapperConstructor_Should.cs" />
+    <Compile Include="EfDbSetWrapper.Tests\GetById_Should.cs" />
     <Compile Include="OnLineDbContextTests\Constructor_Should.cs" />
     <Compile Include="OnLineDbContextTests\Create_Should.cs" />
     <Compile Include="ProductTests\ModelNumber_Should.cs" />

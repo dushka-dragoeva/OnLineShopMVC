@@ -14,22 +14,23 @@ namespace OnLineShop.Data
     public class EfDbSetWrapper<T> : IEfDbSetWrapper<T>
         where T : class
     {
-        private readonly OnLineShopDbContext efDbContext;
-        private readonly IDbSet<T> dbSet;
-
-        public EfDbSetWrapper(OnLineShopDbContext efDbContext)
+        public EfDbSetWrapper(IOnLineShopDbContext efDbContext)
         {
-            Guard.WhenArgument(efDbContext, "efDbContext").IsNull().Throw();
+            Guard.WhenArgument(efDbContext, "IOnLineShopDbContext").IsNull().Throw();
 
-            this.efDbContext = efDbContext;
-            this.dbSet = efDbContext.Set<T>();
+            this.EfDbContext = efDbContext;
+            this.DbSet = efDbContext.Set<T>();
         }
+
+        public IOnLineShopDbContext EfDbContext { get; private set; }
+
+        public IDbSet<T> DbSet { get; private set; }
 
         public IQueryable<T> All()
         {
-           
-                return this.dbSet;
-            
+
+            return this.DbSet;
+
         }
 
         public IQueryable<T> AllWithInclude<TProperty>(Expression<Func<T, TProperty>> includeExpression)
@@ -38,15 +39,15 @@ namespace OnLineShop.Data
         }
 
         public IQueryable<T> AllWithTowInclude<TProperty>(
-            Expression<Func<T, TProperty>> firstIncludeExpression, 
+            Expression<Func<T, TProperty>> firstIncludeExpression,
             Expression<Func<T, TProperty>> secondIncludeExpression)
         {
             return this.All().Include(firstIncludeExpression).Include(secondIncludeExpression);
         }
 
         public IQueryable<T> AllWithThreeInclude<TProperty>(
-            Expression<Func<T, TProperty>> firstIncludeExpression, 
-            Expression<Func<T, TProperty>> secondIncludeExpression, 
+            Expression<Func<T, TProperty>> firstIncludeExpression,
+            Expression<Func<T, TProperty>> secondIncludeExpression,
             Expression<Func<T, TProperty>> thirdIncludeExpression)
         {
             return this
@@ -58,28 +59,28 @@ namespace OnLineShop.Data
 
         public T GetById(int? id)
         {
-            return this.dbSet.Find(id);
+            return this.DbSet.Find(id);
         }
 
         public void Add(T entity)
         {
-            DbEntityEntry entry = this.efDbContext.Entry(entity);
+            DbEntityEntry entry = this.EfDbContext.Entry(entity);
             if (entry.State != EntityState.Detached)
             {
                 entry.State = EntityState.Added;
             }
             else
             {
-                this.dbSet.Add(entity);
+                this.DbSet.Add(entity);
             }
         }
 
         public void Update(T entity)
         {
-            DbEntityEntry entry = this.efDbContext.Entry(entity);
+            DbEntityEntry entry = this.EfDbContext.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
-                this.dbSet.Attach(entity);
+                this.DbSet.Attach(entity);
             }
 
             entry.State = EntityState.Modified;
@@ -87,15 +88,15 @@ namespace OnLineShop.Data
 
         public void Delete(T entity)
         {
-            DbEntityEntry entry = this.efDbContext.Entry(entity);
+            DbEntityEntry entry = this.EfDbContext.Entry(entity);
             if (entry.State != EntityState.Deleted)
             {
                 entry.State = EntityState.Deleted;
             }
             else
             {
-                this.dbSet.Attach(entity);
-                this.dbSet.Remove(entity);
+                this.DbSet.Attach(entity);
+                this.DbSet.Remove(entity);
             }
         }
     }
