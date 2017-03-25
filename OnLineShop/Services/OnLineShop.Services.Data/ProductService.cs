@@ -1,25 +1,41 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using System.Collections.Generic;
-using OnLineShop.Data;
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Data.Contracts;
+using Bytes2you.Validation;
 
 namespace OnLineShop.Services.Data
 {
     public class ProductService : IProductService
     {
-        private readonly IOnLineShopDbContext Context;
+        private readonly IEfDbSetWrapper<Product> productSetWrapper;
 
-        public ProductService(IOnLineShopDbContext context)
+        private readonly IOnLineShopDbContextSaveChanges dbContext;
+
+        public ProductService(IEfDbSetWrapper<Product> productSetWrapper, IOnLineShopDbContextSaveChanges dbContext)
         {
-            this.Context = context;
+            Guard.WhenArgument(productSetWrapper, "productSetWrapper").IsNull().Throw();
+            Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
+            this.productSetWrapper = productSetWrapper;
+            this.dbContext = dbContext;
+        }
+
+        public IEnumerable<Product> GetAllWithCategoryBrand()
+        {
+            return this.productSetWrapper
+                .All()
+                .Where(p => p.IsDeleted == false)
+                 .Include(p => p.Brand)
+                 .Include(p => p.Category)
+                 .ToList();
         }
 
         public IEnumerable<Product> GetLast12WithCategoryAndBrand()
         {
-            return this.Context.Products
+            return this.productSetWrapper
+                .All()
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
                  .Include(p => p.Category)
@@ -27,47 +43,32 @@ namespace OnLineShop.Services.Data
                  .ToList();
         }
 
-        public IEnumerable<Product> GetAllWithCategoryBrand()
-        {
-            return this.Context.Products
-                .Where(p => p.IsDeleted == false)
-                 .Include(p => p.Brand)
-                 .Include(p => p.Category)
-                 .ToList();
-        }
-
-        //public IQueryable<Product> GetAllByCategory(int categoryId)
-        //{
-        //    return this.Context.Products
-        //        .Where(p => p.IsDeleted == false)
-        //        .Where(p => p.CategoryId == categoryId)
-        //        .Include(p => p.Brand);
-        //}
-
         public Product GetById(int? id)
         {
-            return id.HasValue ? this.Context.Products.Find(id) : null;
+            return id.HasValue ? this.productSetWrapper.GetById(id) : null;
         }
 
         public int Insert(Product product)
         {
-            this.Context.Products.Add(product);
-            return this.Context.SaveChanges();
+            this.productSetWrapper.Add(product);
+            return this.dbContext.SaveChanges();
         }
 
         public int Delete(int? id)
         {
+            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+
             var entity = this.GetById(id);
             entity.IsDeleted = true;
-            return this.Context.SaveChanges();
+            this.productSetWrapper.Update(entity);
+            return this.dbContext.SaveChanges();
         }
 
         public int Update(Product product)
         {
             Product productToUpdate = this.GetById(product.Id);
-            this.Context.Entry(productToUpdate).CurrentValues.SetValues(product);
-
-            return this.Context.SaveChanges();
+            this.productSetWrapper.Update(productToUpdate);
+            return this.dbContext.SaveChanges();
         }
     }
 }

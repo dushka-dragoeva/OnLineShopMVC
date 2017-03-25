@@ -1,35 +1,46 @@
-﻿using Moq;
+﻿using System.Collections.Generic;
+using System.Linq;
+
 using NUnit.Framework;
+using Moq;
 
 using OnLineShop.Data.Contracts;
 using OnLineShop.Data.Models;
-using OnLineShop.Services.Data;
 
-namespace OnLineShop.Services.Tests.ProductServiceTest
+namespace OnLineShop.Services.Data.Tests.ProductServiceTest
 {
     [TestFixture]
-    public class GetById_Should
+    public class GetAll_Should
     {
         [Test]
-        public void ReturnProduct_WhenThereIsAModelWithThePassedId()
+        public void BeCalled_WhenParamsAreValid()
         {
+            // Arrange
             var wrapperMock = new Mock<IEfDbSetWrapper<Product>>();
             var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
-            int productId = 1;
-
-            wrapperMock.Setup(m => m.GetById(productId)).Returns(new Product() { Id = productId });
 
             ProductService productService = new ProductService(wrapperMock.Object, dbContextMock.Object);
 
             // Act
-            Product product = productService.GetById(productId);
+            productService.GetAllWithCategoryBrand();
 
             // Assert
-            Assert.IsNotNull(product);
+            wrapperMock.Verify(rep => rep.All(), Times.Once);
         }
 
         [Test]
-        public void ReturnNull_WhenIdParameterIsNull()
+        public void NotBeCalled_IfItIsNeverCalled()
+        {
+            // Arrange & Act
+            var wrapperMock = new Mock<IEfDbSetWrapper<Product>>();
+            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
+
+            // Assert
+            wrapperMock.Verify(rep => rep.All(), Times.Never);
+        }
+
+        [Test]
+        public void ReturnCorrectCollection_IfCalled()
         {
             // Arrange
             var wrapperMock = new Mock<IEfDbSetWrapper<Product>>();
@@ -37,28 +48,11 @@ namespace OnLineShop.Services.Tests.ProductServiceTest
             ProductService productService = new ProductService(wrapperMock.Object, dbContextMock.Object);
 
             // Act
-            Product product = productService.GetById(null);
+            IEnumerable<Product> expectedProductsResult = new List<Product>() { new Product(), new Product() };
+            wrapperMock.Setup(rep => rep.All()).Returns(() => expectedProductsResult.AsQueryable());
 
             // Assert
-            Assert.IsNull(product);
-        }
-
-        [Test]
-        public void ReturnNull_WhenThereIsNoModelWithThePassedId()
-        {
-            // Arrange
-            var wrapperMock = new Mock<IEfDbSetWrapper<Product>>();
-            var dbContextMock = new Mock<IOnLineShopDbContextSaveChanges>();
-            int id = 1;
-
-            ProductService productService = new ProductService(wrapperMock.Object, dbContextMock.Object);
-            wrapperMock.Setup(m => m.GetById(id)).Returns((Product)null);
-
-            // Act
-            Product Product = productService.GetById(id);
-
-            // Assert
-            Assert.IsNull(Product);
+            Assert.AreEqual(productService.GetAllWithCategoryBrand(), expectedProductsResult);
         }
     }
 }

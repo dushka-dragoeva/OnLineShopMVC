@@ -66,6 +66,8 @@
     <Compile Include="CategoryServiseTests\GetAll_Should.cs" />
     <Compile Include="CategoryServiseTests\GetById_Should.cs" />
     <Compile Include="Mocks\QueryableDbSetMock.cs" />
+    <Compile Include="ProductServiceTest\Constructor_Should.cs" />
+    <Compile Include="ProductServiceTest\GetAll_Should.cs" />
     <Compile Include="ProductServiceTest\GetById_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SizeServiceTests\GetById_Should.cs" />

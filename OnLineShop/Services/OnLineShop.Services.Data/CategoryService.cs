@@ -25,7 +25,10 @@ namespace OnLineShop.Services.Data
 
         public IEnumerable<Category> GetAll()
         {
-            return this.categorySetWrapper.All().Where(c => c.IsDeleted == false).ToList();
+            return this.categorySetWrapper
+                .All()
+                .Where(c => c.IsDeleted == false)
+                .ToList();
         }
 
         public Category GetById(int? id)
