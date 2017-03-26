@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using OnLineShop.Web.Models;
 using OnLineShop.Data.Models;
+using OnLineShop.Web.Models.Account;
 
 namespace OnLineShop.Web.Controllers
 {

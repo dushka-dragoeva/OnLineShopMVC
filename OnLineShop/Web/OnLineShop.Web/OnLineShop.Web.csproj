@@ -248,10 +248,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account\AccountViewModels.cs" />
+    <Compile Include="Models\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="Models\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\Account\ForgotViewModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\Account\SendCodeViewModel.cs" />
+    <Compile Include="Models\Account\VerifyCodeViewModel.cs" />
     <Compile Include="Models\Categories\CategoryDetailsViewModel.cs" />
     <Compile Include="Models\Categories\CategoriesNavigationViewModel.cs" />
-    <Compile Include="Models\Menage\ManageViewModels.cs" />
+    <Compile Include="Models\Menage\AddPhoneNumberViewModel.cs" />
+    <Compile Include="Models\Menage\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\Menage\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="Models\Menage\FactorViewModel.cs" />
+    <Compile Include="Models\Menage\IndexViewModel.cs" />
+    <Compile Include="Models\Menage\ManageLoginsViewModel.cs" />
+    <Compile Include="Models\Menage\SetPasswordViewModel.cs" />
+    <Compile Include="Models\Menage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Models\Products\ProductDetailsViewModel.cs" />
     <Compile Include="Models\Products\ProductsViewModel.cs" />
     <Compile Include="Models\Sizes\SizeViewModel.cs" />

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using OnLineShop.Web.Models;
+using OnLineShop.Web.Models.Menage;
 
 namespace OnLineShop.Web.Controllers
 {
