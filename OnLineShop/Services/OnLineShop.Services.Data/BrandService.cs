@@ -22,42 +22,42 @@ namespace OnLineShop.Services.Data
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<Brand> GetAll()
-        {
-            return this.brandSetWrapper
-                .All()
-                .Where(c => c.IsDeleted == false)
-                .ToList();
-        }
+        //public IEnumerable<Brand> GetAll()
+        //{
+        //    return this.brandSetWrapper
+        //        .All()
+        //        .Where(c => c.IsDeleted == false)
+        //        .ToList();
+        //}
 
         public Brand GetById(int? id)
         {
             return id.HasValue ? this.brandSetWrapper.GetById(id) : null;
         }
 
-        public int Update(Brand Brand)
-        {
+        //public int Update(Brand Brand)
+        //{
 
-            Brand brandToUpdate = this.brandSetWrapper.GetById(Brand.Id);
-            this.brandSetWrapper.Update(brandToUpdate);
+        //    Brand brandToUpdate = this.brandSetWrapper.GetById(Brand.Id);
+        //    this.brandSetWrapper.Update(brandToUpdate);
 
-            return this.dbContext.SaveChanges();
-        }
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Insert(Brand Brand)
-        {
-            this.brandSetWrapper.Add(Brand);
-            return this.dbContext.SaveChanges();
-        }
+        //public int Insert(Brand Brand)
+        //{
+        //    this.brandSetWrapper.Add(Brand);
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Delete(int? id)
-        {
-            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+        //public int Delete(int? id)
+        //{
+        //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
 
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            this.brandSetWrapper.Update(entity);
-            return this.dbContext.SaveChanges();
-        }
+        //    var entity = this.GetById(id);
+        //    entity.IsDeleted = true;
+        //    this.brandSetWrapper.Update(entity);
+        //    return this.dbContext.SaveChanges();
+        //}
     }
 }

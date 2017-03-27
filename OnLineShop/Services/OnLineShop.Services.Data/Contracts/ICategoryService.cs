@@ -12,10 +12,10 @@ namespace OnLineShop.Services.Data.Contracts
 
         //Category GetByName(string name);
 
-        int Update(Category category);
+        //int Update(Category category);
 
-        int Delete(int? id);
+        //int Delete(int? id);
 
-        int Insert(Category category);
+        //int Insert(Category category);
     }
 }

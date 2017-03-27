@@ -9,7 +9,7 @@ namespace OnLineShop.Services.Data.Contracts
 {
     public interface IProductService
     {
-        IEnumerable<Product> GetAllWithCategoryBrand();
+       // IEnumerable<Product> GetAllWithCategoryBrand();
 
        // IQueryable<Product> GetAllByCategory(int categoryId);
 
@@ -17,10 +17,10 @@ namespace OnLineShop.Services.Data.Contracts
 
         Product GetById(int? id);
 
-        int Update(Product product);
+        //int Update(Product product);
 
-        int Delete(int? id);
+        //int Delete(int? id);
 
-        int Insert(Product product);
+        //int Insert(Product product);
     }
 }

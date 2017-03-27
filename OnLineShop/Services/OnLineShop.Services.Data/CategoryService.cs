@@ -41,30 +41,30 @@ namespace OnLineShop.Services.Data
         //    return this.Context.Categories.Find(name);
         //}
 
-        public int Update(Category category)
-        {
+        //public int Update(Category category)
+        //{
 
-            Category categoryToUpdate = this.categorySetWrapper.GetById(category.Id);
-            this.categorySetWrapper.Update(categoryToUpdate);
+        //    Category categoryToUpdate = this.categorySetWrapper.GetById(category.Id);
+        //    this.categorySetWrapper.Update(categoryToUpdate);
 
-            return this.dbContext.SaveChanges();
-        }
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Insert(Category category)
-        {
-            this.categorySetWrapper.Add(category);
-            return this.dbContext.SaveChanges();
-        }
+        //public int Insert(Category category)
+        //{
+        //    this.categorySetWrapper.Add(category);
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Delete(int? id)
-        {
-            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+        //public int Delete(int? id)
+        //{
+        //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
 
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            this.categorySetWrapper.Update(entity);
-            return this.dbContext.SaveChanges();
-        }
+        //    var entity = this.GetById(id);
+        //    entity.IsDeleted = true;
+        //    this.categorySetWrapper.Update(entity);
+        //    return this.dbContext.SaveChanges();
+        //}
     }
 }
 

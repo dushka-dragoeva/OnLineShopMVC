@@ -6,16 +6,16 @@ namespace OnLineShop.Services.Data.Contracts
 {
     public interface IBrandService
     {
-        IEnumerable<Brand> GetAll();
+       // IEnumerable<Brand> GetAll();
 
-        Brand GetById(int? id);
+       Brand GetById(int? id);
 
-       // Brand GetByName(string name);
+       //// Brand GetByName(string name);
 
-        int Update(Brand Brand);
+       // int Update(Brand Brand);
 
-        int Delete(int? id);
+       // int Delete(int? id);
 
-        int Insert(Brand Brand);
+       // int Insert(Brand Brand);
     }
 }

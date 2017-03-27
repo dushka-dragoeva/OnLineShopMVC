@@ -10,7 +10,7 @@ using OnLineShop.Data.Models;
 namespace OnLineShop.Services.Data.Tests.ProductServiceTest
 {
     [TestFixture]
-    public class GetAll_Should
+    public class GetLast12WithCategoryAndBrand_Should
     {
         [Test]
         public void BeCalled_WhenParamsAreValid()
@@ -22,7 +22,7 @@ namespace OnLineShop.Services.Data.Tests.ProductServiceTest
             ProductService productService = new ProductService(wrapperMock.Object, dbContextMock.Object);
 
             // Act
-            productService.GetAllWithCategoryBrand();
+            productService.GetLast12WithCategoryAndBrand();
 
             // Assert
             wrapperMock.Verify(rep => rep.All(), Times.Once);
@@ -52,7 +52,7 @@ namespace OnLineShop.Services.Data.Tests.ProductServiceTest
             wrapperMock.Setup(rep => rep.All()).Returns(() => expectedProductsResult.AsQueryable());
 
             // Assert
-            Assert.AreEqual(productService.GetAllWithCategoryBrand(), expectedProductsResult);
+            Assert.AreEqual(productService.GetLast12WithCategoryAndBrand(), expectedProductsResult);
         }
     }
 }

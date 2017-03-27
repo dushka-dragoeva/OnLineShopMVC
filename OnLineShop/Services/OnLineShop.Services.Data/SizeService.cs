@@ -36,29 +36,29 @@ namespace OnLineShop.Services.Data
             return id.HasValue ? this.sizeSetWrapper.GetById(id) : null;
         }
 
-        public int Update(Size Size)
-        {
+       // public int Update(Size Size)
+       // {
 
-            Size sizeToUpdate = this.sizeSetWrapper.GetById(Size.Id);
-            this.sizeSetWrapper.Update(sizeToUpdate);
+            //    Size sizeToUpdate = this.sizeSetWrapper.GetById(Size.Id);
+            //    this.sizeSetWrapper.Update(sizeToUpdate);
 
-            return this.dbContext.SaveChanges();
+            //    return this.dbContext.SaveChanges();
+            //}
+
+            //public int Insert(Size Size)
+            //{
+            //    this.sizeSetWrapper.Add(Size);
+            //    return this.dbContext.SaveChanges();
+            //}
+
+            //public int Delete(int? id)
+            //{
+            //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+
+            //    var entity = this.GetById(id);
+            //    entity.IsDeleted = true;
+            //    this.sizeSetWrapper.Update(entity);
+            //    return this.dbContext.SaveChanges();
+            //}
         }
-
-        public int Insert(Size Size)
-        {
-            this.sizeSetWrapper.Add(Size);
-            return this.dbContext.SaveChanges();
-        }
-
-        public int Delete(int? id)
-        {
-            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
-
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            this.sizeSetWrapper.Update(entity);
-            return this.dbContext.SaveChanges();
-        }
-    }
 }

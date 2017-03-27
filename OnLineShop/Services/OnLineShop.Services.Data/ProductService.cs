@@ -22,20 +22,21 @@ namespace OnLineShop.Services.Data
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<Product> GetAllWithCategoryBrand()
-        {
-            return this.productSetWrapper
-                .All()
-                .Where(p => p.IsDeleted == false)
-                 .Include(p => p.Brand)
-                 .Include(p => p.Category)
-                 .ToList();
-        }
+        //public IEnumerable<Product> GetAllWithCategoryBrand()
+        //{
+        //    return this.productSetWrapper
+        //        .All()
+        //        .Where(p => p.IsDeleted == false)
+        //         .Include(p => p.Brand)
+        //         .Include(p => p.Category)
+        //         .ToList();
+        //}
 
         public IEnumerable<Product> GetLast12WithCategoryAndBrand()
         {
             return this.productSetWrapper
                 .All()
+                .OrderByDescending(p=>p.AddedOn)
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
                  .Include(p => p.Category)
@@ -48,27 +49,27 @@ namespace OnLineShop.Services.Data
             return id.HasValue ? this.productSetWrapper.GetById(id) : null;
         }
 
-        public int Insert(Product product)
-        {
-            this.productSetWrapper.Add(product);
-            return this.dbContext.SaveChanges();
-        }
+        //public int Insert(Product product)
+        //{
+        //    this.productSetWrapper.Add(product);
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Delete(int? id)
-        {
-            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+        //public int Delete(int? id)
+        //{
+        //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
 
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            this.productSetWrapper.Update(entity);
-            return this.dbContext.SaveChanges();
-        }
+        //    var entity = this.GetById(id);
+        //    entity.IsDeleted = true;
+        //    this.productSetWrapper.Update(entity);
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public int Update(Product product)
-        {
-            Product productToUpdate = this.GetById(product.Id);
-            this.productSetWrapper.Update(productToUpdate);
-            return this.dbContext.SaveChanges();
-        }
+        //public int Update(Product product)
+        //{
+        //    Product productToUpdate = this.GetById(product.Id);
+        //    this.productSetWrapper.Update(productToUpdate);
+        //    return this.dbContext.SaveChanges();
+        //}
     }
 }
