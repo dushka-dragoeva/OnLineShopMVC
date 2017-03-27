@@ -12,6 +12,7 @@ namespace OnLineShop.Web.Models.Products
     [ValidateAntiForgeryToken]
     public class ProductDetailsViewModel
     {
+        private const int MinOrdeQuantity = 1;
 
         public ProductDetailsViewModel()
         {
@@ -27,7 +28,7 @@ namespace OnLineShop.Web.Models.Products
             this.Price = product.Price;
             this.Description = product.Description;
             this.ModelNumber = product.ModelNumber;
-            this.Quantity = 0;
+            this.Quantity = MinOrdeQuantity;
             this.Sizes = product.Sizes.Select(s => new SizeViewModel(s)).ToList();
         }
         private ICollection<SizeViewModel> sizes = new List<SizeViewModel>();

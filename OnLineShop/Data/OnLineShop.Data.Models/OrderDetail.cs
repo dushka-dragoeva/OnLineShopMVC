@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using OnLineShop.Common.Constants;
 using OnLineShop.Data.Models.Contracts;
+using System;
 
 namespace OnLineShop.Data.Models
 {
@@ -15,7 +16,15 @@ namespace OnLineShop.Data.Models
 
         public virtual Order Order { get; set; }
 
+        [ForeignKey("Product")]
         public int ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
+
+        [ForeignKey("Size")]
+        public int? SizeId { get; set; }
+
+        public virtual Size Size { get; set; }
 
         [Required]
         [Range(
@@ -25,6 +34,10 @@ namespace OnLineShop.Data.Models
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }
+
+        public decimal SubTotal { get; set; }
+
+        public DateTime OrderedDate { get; set; }
 
         public bool IsDeleted { get; set; }
     }

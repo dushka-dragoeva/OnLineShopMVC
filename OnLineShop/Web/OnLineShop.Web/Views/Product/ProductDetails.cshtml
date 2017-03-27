@@ -7,13 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Ajax.BeginForm("ProductDetails", null, new AjaxOptions()
-{
-    //UpdateTargetId = "movies-container",
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "POST"
-}, new {@class= "form-group" }))
-
+@using (@Html.BeginForm("OrderNow", "ShoppingCart", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id }))
 {
     @Html.AntiForgeryToken()
     <div class="row" style="border:1px, solid, black">
@@ -51,20 +45,22 @@
                     @Html.EditorFor(m => m.Quantity)
                 </div>
                 <div class="col-md-6">
-                    <label for="sizes-drop-down" >Размери: </label>
-                    <select id="sizes-drop-down" class="form-control">
+                    <label for="sizes-drop-down">Размери: </label>
+                    <select id="sizes-drop-down" class="form-control" name="Size">
                         @foreach (var size in @Model.Sizes)
                 {
-                            <option value="@size.Id">@size.Value</option>
+                            <option value="@size.Value", name=@size.Value>@size.Value</option>
                         }
                     </select>
                 </div>
             </div>
             <br />
+            <br />
             <div>
+                @*@Html.ActionLink("Поръчай", "MyCart", "ShoppingCart", null, new { id = Model.Id })*@
                 @Html.Submit(new { value = "Поръчай"})
             </div>
-         
+
 
         </div>
     </div>

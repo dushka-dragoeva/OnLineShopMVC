@@ -27,17 +27,18 @@ namespace OnLineShop.Data.Models
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
+       
+        [ForeignKey("ContactInfo")]
+        public int ContactInfoId { get; set; }
 
-        [ScaffoldColumn(false)]
-        public decimal Total { get; set; }
+        public virtual ContactInfo ContactInfo { get; set; }
+        
+        public decimal TotalAmount { get; set; }
 
-        [ScaffoldColumn(false)]
         public bool HasBeenConfirmed { get; set; }
 
-        [ScaffoldColumn(false)]
         public bool HasBeenShipped { get; set; }
 
-        [ScaffoldColumn(false)]
         public bool HasBeenClosed { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails
