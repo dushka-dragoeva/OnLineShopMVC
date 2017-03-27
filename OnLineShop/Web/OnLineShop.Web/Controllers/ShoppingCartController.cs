@@ -5,13 +5,15 @@ using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Models.Products;
 using OnLineShop.Web.Models.OrderDetail;
 using Bytes2you.Validation;
+using OnLineShop.Web.Models.ShoppingCart;
 
 namespace OnLineShop.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        IProductService productService;
-        IList<OrderDetailViewModel> cart;
+       private IProductService productService;
+       private IList<OrderDetailViewModel> cart;
+       private ShoppingCartViewModel shoppingCart;
 
         public ShoppingCartController(IProductService productService)
         {
@@ -30,6 +32,8 @@ namespace OnLineShop.Web.Controllers
             }
             else
             {
+                this.cart = (List<OrderDetailViewModel>)Session["cart"];
+                ViewBag.Count = cart.Count;
                 return View("MyCart", Session["cart"]);
             }
         }
@@ -52,8 +56,7 @@ namespace OnLineShop.Web.Controllers
 
             cart.Add(new OrderDetailViewModel(productToAdd, productQuantity, productSize));
             Session["cart"] = cart;
-
-            ViewBag.Count = cart.Count;
+           
             return RedirectToAction("MyCart");
         }
 
@@ -65,7 +68,6 @@ namespace OnLineShop.Web.Controllers
             this.cart.RemoveAt(index);
             Session["cart"] = this.cart;
 
-            ViewBag.Count = cart.Count;
             return RedirectToAction("MyCart");
         }
     }
