@@ -29,10 +29,9 @@ namespace OnLineShop.Web.Controllers
 
             if (product == null)
             {
-
                 ViewBag.Message = $" Продукт с ID {id} не е намерен.";
 
-                return View();
+                return View("ProductNotFound");
             }
             else
             {
@@ -42,12 +41,12 @@ namespace OnLineShop.Web.Controllers
             }
         }
 
-        // GET: Product
-        [HttpPost]
-        public ActionResult ProductDetails()
-        {
-            return Redirect("/");
-        }
+        //// GET: Product
+        //[HttpPost]
+        //public ActionResult ProductDetails()
+        //{
+        //    return Redirect("/");
+        //}
 
         [ChildActionOnly]
         public ActionResult LatestProducts()

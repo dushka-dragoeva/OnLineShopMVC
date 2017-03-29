@@ -101,7 +101,11 @@
   <ItemGroup>
     <Compile Include="Controllers\CategoryControllerTessts\CategoryControllerConstructor_Should.cs" />
     <Compile Include="Controllers\CategoryControllerTessts\CategoryDetails_Should.cs" />
+    <Compile Include="Controllers\CategoryControllerTessts\CategoryNavigation_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\HomeControllerConstructor_Should.cs" />
+    <Compile Include="Controllers\ProductControllerTests\Consructor_Should.cs" />
+    <Compile Include="Controllers\ProductControllerTests\LatestProduct_Should.cs" />
+    <Compile Include="Controllers\ProductControllerTests\ProductDetails_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTests\HomeControllerTest.cs" />
   </ItemGroup>
@@ -125,7 +129,9 @@
       <Name>OnLineShop.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controllers\ShoppingCartContollerTests\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

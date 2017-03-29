@@ -8,13 +8,13 @@ using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Models.Categories;
 using Bytes2you.Validation;
+using OnLineShop.Web.Models.Products;
 
 namespace OnLineShop.Web.Controllers
 {
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
-
 
         public CategoryController(ICategoryService categoryService)
         {
@@ -26,35 +26,40 @@ namespace OnLineShop.Web.Controllers
         public ActionResult CategoryDetails(int? id)
         {
             Category category = this.categoryService.GetById(id);
+            if (category == null)
+            {
+                ViewBag.Message = $" Категория с ID {id} не е намеренa.";
 
-            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
+                return View("CategoryNotFound");
+            }
+            else
+            {
+                CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
 
-            return View(categoryDetails);
+                return View(categoryDetails);
+            }
         }
 
         [ChildActionOnly]
         public ActionResult CategoriesNavigation()
         {
-            var cat = categoryService.GetAll().ToList();
+            var categories = categoryService.GetAll().ToList();
+                         var navigationCategories = this.categoryService.GetAll()
+                                    .Select(c => new CategoriesNavigationViewModel(c)).ToList();
 
-            var navigationCategories = this.categoryService.GetAll()
-                                             .Select(c => new CategoriesNavigationViewModel(c)).ToList();
-
-            return PartialView("_CategoriesPartial", navigationCategories);
+                return PartialView("_CategoriesPartial", navigationCategories);
         }
 
-        [ChildActionOnly]
-        public ActionResult ProductList(int? id)
-        {
-            Category category = this.categoryService.GetById(id);
+        //[ChildActionOnly]
+        //public ActionResult ProductList(int? id)
+        //{
+        //    Category category = this.categoryService.GetById(id);
 
-            CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
+        //    CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
 
-            List<OnLineShop.Web.Models.Products.ProductsViewModel> products = categoryDetails.Products.ToList();
+        //    List<ProductsViewModel> products = categoryDetails.Products.ToList();
 
-            return PartialView(PartialConstants.ProductsPartial, products);
-        }
-
-        
+        //    return PartialView(PartialConstants.ProductsPartial, products);
+        //}
     }
 }

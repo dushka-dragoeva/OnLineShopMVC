@@ -1,11 +1,14 @@
-﻿using Moq;
+﻿using System.Linq;
+
+using Moq;
 using NUnit.Framework;
+using TestStack.FluentMVCTesting;
+
 using OnLineShop.Data.Models;
 using OnLineShop.Services.Data.Contracts;
 using OnLineShop.Web.Controllers;
 using OnLineShop.Web.Models.Categories;
-using System.Linq;
-using TestStack.FluentMVCTesting;
+
 
 namespace OnLineShop.Web.Tests.Controllers.CategoryControllerTessts
 {
@@ -75,13 +78,7 @@ namespace OnLineShop.Web.Tests.Controllers.CategoryControllerTessts
             // Act & Assert
             categoryController
                 .WithCallTo(c => c.CategoryDetails(categoryId))
-                    .ShouldRenderDefaultView()
-                    .WithModel<CategoryDetailsViewModel>(viewModel =>
-                    {
-                        Assert.AreEqual(0, viewModel.Id);
-                        Assert.IsNull(viewModel.Name);
-                        Assert.IsNull(viewModel.Products);
-                    });
+                    .ShouldRenderView("CategoryNotFound");
         }
 
         [Test]
@@ -98,13 +95,7 @@ namespace OnLineShop.Web.Tests.Controllers.CategoryControllerTessts
             // Act & Assert
             categoryController
                 .WithCallTo(c => c.CategoryDetails(null))
-                    .ShouldRenderDefaultView()
-                    .WithModel<CategoryDetailsViewModel>(viewModel =>
-                    {
-                        Assert.AreEqual(0, viewModel.Id);
-                        Assert.IsNull(viewModel.Name);
-                        Assert.IsNull(viewModel.Products);
-                    });
+                .ShouldRenderView("CategoryNotFound");
         }
     }
 }
