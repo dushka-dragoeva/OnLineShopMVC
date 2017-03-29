@@ -12,7 +12,7 @@ namespace OnLineShop.Data.Models
 {
     public class Order:IDbModel
     {
-        private ICollection<OrderDetail> orderDetails;
+        private IEnumerable<OrderDetail> orderDetails;
 
         public Order()
         {
@@ -24,7 +24,7 @@ namespace OnLineShop.Data.Models
         public DateTime OrderDate { get; set; }
 
         [ForeignKey("User")]
-        public string UserId { get; set; }
+        public string UserName { get; set; }
 
         public virtual User User { get; set; }
        
@@ -41,7 +41,7 @@ namespace OnLineShop.Data.Models
 
         public bool HasBeenClosed { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetails
+        public virtual IEnumerable<OrderDetail> OrderDetails
         {
             get
             {

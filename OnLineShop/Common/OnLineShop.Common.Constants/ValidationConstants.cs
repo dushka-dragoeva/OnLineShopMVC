@@ -3,7 +3,9 @@
     public class ValidationConstants
     {
         public const string EnBgSpaceMinus = @"^[a-zA-Zа-яА-Я\s\-]+$";
-        public const string EnBgDigitSpaceMinus = @"^[a-zA-Zа-яА-Я0-9\s\-]+$";
+        public const string EnBgSpaceMinusDot = @"^[a-zA-Zа-яА-Я\s\-\.]+$";
+        public const string EnBgDigitSpaceMinus = @"^[a-zA-Zа-яА-Я0-9\s\-\.]+$";
+        public const string EnBgDigitSpaceMinusDot = @"^[a-zA-Zа-яА-Я0-9\s\-]+$";
         public const string DescriptionRegex = @"^[a-zA-Zа-яА-Я0-9\s\-\.,!():;?/+_%@""'#&=\*]+$";
 
         // sourse http://stackoverflow.com/questions/8908976/c-sharp-regex-to-validate-phone-number
@@ -25,7 +27,7 @@
         public const int AddressMaxLength = 100;
 
         public const int ImageUrlMinLength = 6;
-        public const int ImageUrlMaxLength= 300;
+        public const int ImageUrlMaxLength = 300;
 
         public const int QuantityMinValue = 1;
         public const int QuantityMaxValue = 10000000;

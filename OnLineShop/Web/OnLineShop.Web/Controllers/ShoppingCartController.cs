@@ -12,12 +12,18 @@ namespace OnLineShop.Web.Controllers
     public class ShoppingCartController : Controller
     {
         private IProductService productService;
+        private IOrderService orderService;
+        private IOrderDetailsService orderDetailsService;
 
-        public ShoppingCartController(IProductService productService)
+        public ShoppingCartController(IProductService productService, IOrderService orderService, IOrderDetailsService orderDetailsService)
         {
             Guard.WhenArgument(productService, "productService").IsNull().Throw();
+            Guard.WhenArgument(orderService, "orderService").IsNull().Throw();
+            Guard.WhenArgument(orderDetailsService, "orderDetailsService").IsNull().Throw();
 
             this.productService = productService;
+            this.orderService = orderService;
+            this.orderDetailsService = orderDetailsService;
         }
 
         public List<OrderDetailViewModel> CartItems { get; set; }
@@ -69,5 +75,21 @@ namespace OnLineShop.Web.Controllers
 
             return RedirectToAction("MyCart");
         }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult CheckOut()
+        {
+            List<OrderDetailViewModel> orderItems = this.CartItems = (List<OrderDetailViewModel>)Session["cart"];
+
+
+            return View("Thanks");
+        }
+
+        //[HttpPost]
+        //public ActionResult CheckOut(int? userId)
+        //{
+
+        //}
     }
 }

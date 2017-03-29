@@ -10,7 +10,7 @@
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-            <li><a href="@Url.Action("MyCart", "ShoppingCart")"></a><span class="glyphicon glyphicon-shopping-cart"></span></li>
+            <li><a href="@Url.Action("MyCart", "ShoppingCart")"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </ul>
     }
 }

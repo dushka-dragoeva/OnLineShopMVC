@@ -15,10 +15,15 @@ namespace OnLineShop.Web.Tests.Controllers.ShoppingCartContollerTests
         {
             // Arrange 
             var productServiceMock = new Mock<IProductService>();
+            var orderServiceMock = new Mock<IOrderService>();
+            var orderDetailsServiceMock = new Mock<IOrderDetailsService>();
 
 
             //Act
-            ShoppingCartController shoppingCartController = new ShoppingCartController(productServiceMock.Object);
+            ShoppingCartController shoppingCartController = new ShoppingCartController(
+                productServiceMock.Object, 
+                orderServiceMock.Object, 
+                orderDetailsServiceMock.Object  );
 
             // Assert
             Assert.IsNotNull(shoppingCartController);
@@ -29,7 +34,7 @@ namespace OnLineShop.Web.Tests.Controllers.ShoppingCartContollerTests
         {
             // Arrange & Act & Assert
 
-            Assert.Throws<ArgumentNullException>(() => new ShoppingCartController(null));
+            Assert.Throws<ArgumentNullException>(() => new ShoppingCartController(null, null,null));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace OnLineShop.Data.Contracts
 
         IDbSet<Size> Sizes { get; set; }
 
-        IDbSet<Town> Towns { get; set; }
+       // IDbSet<Town> Towns { get; set; }
 
         IDbSet<Category> Categories { get; set; }
 

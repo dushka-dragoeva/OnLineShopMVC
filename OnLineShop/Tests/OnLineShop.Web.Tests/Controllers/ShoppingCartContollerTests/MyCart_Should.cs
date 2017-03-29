@@ -24,7 +24,12 @@ namespace OnLineShop.Web.Tests.Controllers.ShoppingCartContollerTests
             mockControllerContext.Setup(p => p.HttpContext.Session).Returns(mockSession.Object);
 
             var productServiceMock = new Mock<IProductService>();
-            ShoppingCartController shoppingCartController = new ShoppingCartController(productServiceMock.Object);
+            var orderServiceMock = new Mock<IOrderService>();
+            var orderDetailsServiceMock = new Mock<IOrderDetailsService>();
+            ShoppingCartController shoppingCartController = new ShoppingCartController(
+                productServiceMock.Object,
+                orderServiceMock.Object,
+                orderDetailsServiceMock.Object);
             shoppingCartController.ControllerContext = mockControllerContext.Object;
 
             // Act & Assert
@@ -40,7 +45,12 @@ namespace OnLineShop.Web.Tests.Controllers.ShoppingCartContollerTests
             var controllerContextMock = new Mock<ControllerContext>();
             var sessionMock = new Mock<HttpSessionStateBase>();
             var productServiceMock = new Mock<IProductService>();
-            ShoppingCartController shoppingCartController = new ShoppingCartController(productServiceMock.Object);
+            var orderServiceMock = new Mock<IOrderService>();
+            var orderDetailsServiceMock = new Mock<IOrderDetailsService>();
+            ShoppingCartController shoppingCartController = new ShoppingCartController(
+                productServiceMock.Object,
+                orderServiceMock.Object,
+                orderDetailsServiceMock.Object);
             shoppingCartController.CartItems = new List<OrderDetailViewModel>();
 
             sessionMock.SetupGet(s => s["cart"]).Returns(shoppingCartController.CartItems);
@@ -53,7 +63,7 @@ namespace OnLineShop.Web.Tests.Controllers.ShoppingCartContollerTests
             shoppingCartController
                  .WithCallTo(s => s.MyCart())
                      .ShouldRenderView("MyCart");
-                     
+
         }
     }
 }

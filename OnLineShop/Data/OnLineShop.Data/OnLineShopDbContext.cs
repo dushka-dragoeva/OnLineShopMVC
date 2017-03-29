@@ -26,7 +26,7 @@ namespace OnLineShop.Data
 
         public IDbSet<Size> Sizes { get; set; }
 
-        public IDbSet<Town> Towns { get; set; }
+       // public IDbSet<Town> Towns { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
 

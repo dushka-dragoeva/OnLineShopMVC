@@ -366,6 +366,7 @@
     <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
     <Content Include="Views\Product\ProductNotFound.cshtml" />
     <Content Include="Views\Category\CategoryNotFound.cshtml" />
+    <Content Include="Views\ShoppingCart\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
