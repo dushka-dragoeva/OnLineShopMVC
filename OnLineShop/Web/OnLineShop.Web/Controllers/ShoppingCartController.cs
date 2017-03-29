@@ -11,9 +11,7 @@ namespace OnLineShop.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-       private IProductService productService;
-       private IList<OrderDetailViewModel> cart;
-       private ShoppingCartViewModel shoppingCart;
+        private IProductService productService;
 
         public ShoppingCartController(IProductService productService)
         {
@@ -21,6 +19,8 @@ namespace OnLineShop.Web.Controllers
 
             this.productService = productService;
         }
+
+        public List<OrderDetailViewModel> CartItems { get; set; }
 
         [HttpGet]
         public ActionResult MyCart()
@@ -32,13 +32,13 @@ namespace OnLineShop.Web.Controllers
             }
             else
             {
-                this.cart = (List<OrderDetailViewModel>)Session["cart"];
-                ViewBag.Count = cart.Count;
+                this.CartItems = (List<OrderDetailViewModel>)Session["cart"];
+                ViewBag.Count = CartItems.Count;
                 return View("MyCart", Session["cart"]);
             }
         }
 
-      [HttpPost]
+        [HttpPost]
         public ActionResult OrderNow(int? id)
         {
             var productToAdd = new ProductDetailsViewModel(this.productService.GetById(id));
@@ -47,26 +47,25 @@ namespace OnLineShop.Web.Controllers
 
             if (Session["cart"] == null)
             {
-                this.cart = new List<OrderDetailViewModel>();
+                this.CartItems = new List<OrderDetailViewModel>();
             }
             else
             {
-                this.cart = (List<OrderDetailViewModel>)Session["cart"];
+                this.CartItems = (List<OrderDetailViewModel>)Session["cart"];
             }
 
-            cart.Add(new OrderDetailViewModel(productToAdd, productQuantity, productSize));
-            Session["cart"] = cart;
-           
+            CartItems.Add(new OrderDetailViewModel(productToAdd, productQuantity, productSize));
+            Session["cart"] = CartItems;
+
             return RedirectToAction("MyCart");
         }
 
-      
         public ActionResult Delete(int index)
         {
-            this.cart = (List<OrderDetailViewModel>)Session["cart"];
+            this.CartItems = (List<OrderDetailViewModel>)Session["cart"];
             // int index = IsExisting(id);
-            this.cart.RemoveAt(index);
-            Session["cart"] = this.cart;
+            this.CartItems.RemoveAt(index);
+            Session["cart"] = this.CartItems;
 
             return RedirectToAction("MyCart");
         }
