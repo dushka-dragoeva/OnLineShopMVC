@@ -3,7 +3,7 @@
 @model List<OrderDetailViewModel>
 
 <table class="table table-responsive">
-    <tr>
+    <tr class="well">
         <th hidden="hidden">Id</th>
         <th>Артикул</th>
         <th>Описание</th>
@@ -23,23 +23,28 @@
                 <td hidden="hidden" id=@index>@item.Product.Id</td>
                 <td><img src="@Url.Content(item.Product.PictureUrl)" class="img-responsive" width="40" /></td>
                 <td>
-                   <div>@item.Product.Name</div>
+                    <div>@item.Product.Name</div>
                     <div><small>Арт. №: @item.Product.ModelNumber</small></div>
                     <div>Размер: @item.Size.Value</div>
-                      
+
                 </td>
                 <td>@item.Product.Price лв.</td>
                 <td>@item.Quantity</td>
                 <td>@(item.Product.Price * item.Quantity)лв.</td>
-                <td>@Html.ActionLink("Изтий", "Delete", "ShoppingCart", new { id = @item.Product.Id, index = @index }, null)</td>
+                <td>
+                    <strong>
+                        @Html.ActionLink("  ", "Delete", "ShoppingCart", new { id = @item.Product.Id, index = @index }, new { @class = "text-danger text-right glyphicon glyphicon-remove" })
+                    </strong>
+                </td>
+
             </tr>
             sum += item.Product.Price * item.Quantity;
             index++;
         }
 
-        <tr>
-            <td colspan="4" class="text-right">Обща Стойност:</td>
-            <td> @sum лв.</td>
+        <tr class="well well-lg h5">
+            <td colspan="4" class="text-right"><strong>Обща Стойност:</strong> </td>
+            <td> <strong>@sum лв.</strong></td>
             <td></td>
         </tr>
     }

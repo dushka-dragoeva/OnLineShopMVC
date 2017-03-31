@@ -7,7 +7,7 @@
 }
 
 
-<h2>Продукти във Вашата Количка: @ViewBag.Count</h2>
+<h3>Продукти във Вашата Количка: @ViewBag.Count</h3>
 <hr />
 <br />
 
@@ -15,7 +15,11 @@
 @Html.Partial("_CartItemsPartials", Model)
 
 
-@Html.ActionLink("Изпрати поръчката", "CheckOut")
-@Html.ActionLink("Продължи с пазаруването", "Index", "Home")
-
-
+<div class="row">
+    <div class="col-md-6">
+        <a href="/" class="btn btn-info">Продължи с пазаруването</a>
+    </div>
+    <div class="col-md-6 text-right">
+        <a href="CheckOut" class="btn btn-info">Изпрати поръчката</a>
+    </div>
+</div>

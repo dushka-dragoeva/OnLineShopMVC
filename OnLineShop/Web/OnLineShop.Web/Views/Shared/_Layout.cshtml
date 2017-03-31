@@ -24,9 +24,9 @@
                 </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" >
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доставка и Плащане", "About", "Home")</li>
+                    <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
                     
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -41,7 +41,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Dushka Dragoeva MVC On-Line Shop Template Telerik Course Project</p>
+            <p><a href="https://github.com/dushka-dragoeva/OnLineShopMVC" class="btn btn-info" role="button">@@Github</a></p>
         </footer>
     </div>
 

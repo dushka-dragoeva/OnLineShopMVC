@@ -12,6 +12,7 @@ namespace OnLineShop.Web.Infrastructure.Helpers
             input.MergeAttributes(atributes);
             input.Attributes.Add("type", "submit");
             input.Attributes.Add("@class", "form-control btn btn-info");
+
             if (htmlAtributes != null)
             {
                 foreach (var atr in htmlAtributes.GetType().GetProperties())
