@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 20px;
 }
 
@@ -25,7 +25,7 @@ textarea {
 
 #background-navigation {
     height: 300px;
-  
+    padding-top:150px;
     background-image: url(Images/10704285_531231710341154_7446060005816611949_o.jpg);
     background-position:center;
     background-repeat: no-repeat;

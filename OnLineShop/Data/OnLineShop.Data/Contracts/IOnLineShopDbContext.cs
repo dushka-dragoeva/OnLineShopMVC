@@ -5,7 +5,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace OnLineShop.Data.Contracts
 {
-    public interface IOnLineShopDbContext : IOnLineShopDbContextSaveChanges
+    public interface IOnLineShopDbContext 
     {
         IDbSet<User> Users { get; set; }
 
@@ -26,6 +26,8 @@ namespace OnLineShop.Data.Contracts
         IDbSet<OrderDetail> OrderDetail { get; set; }
 
         IDbSet<Order> Order { get; set; }
+
+        int SaveChanges();
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 

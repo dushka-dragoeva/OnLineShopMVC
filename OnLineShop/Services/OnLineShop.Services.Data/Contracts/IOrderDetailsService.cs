@@ -5,15 +5,15 @@ namespace OnLineShop.Services.Data.Contracts
 {
     public interface IOrderDetailsService
     {
-        IEnumerable<OrderDetail> GetAll();
+       // IEnumerable<OrderDetail> GetAll();
 
         OrderDetail GetById(int? id);
 
-        int Update(OrderDetail orderDetails);
+        //int Update(OrderDetail orderDetails);
 
-        int Delete(int? id);
+        //int Delete(int? id);
 
-        int Create(OrderDetail orderDetails);
+        int Create(OrderDetail orderDetail);
 
     }
 }

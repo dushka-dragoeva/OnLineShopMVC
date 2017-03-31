@@ -268,10 +268,11 @@
     <Compile Include="Models\Menage\ManageLoginsViewModel.cs" />
     <Compile Include="Models\Menage\SetPasswordViewModel.cs" />
     <Compile Include="Models\Menage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="Models\OrderDetail\OrderDetailViewModel.cs" />
+    <Compile Include="Models\ShoppingCart\OrderDetailViewModel.cs" />
     <Compile Include="Models\Products\ProductDetailsViewModel.cs" />
     <Compile Include="Models\Products\ProductsViewModel.cs" />
     <Compile Include="Models\ShoppingCart\ShoppingCartViewModel.cs" />
+    <Compile Include="Models\ShoppingCart\ContactInfoViewModel.cs" />
     <Compile Include="Models\Sizes\SizeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -366,6 +367,8 @@
     <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
     <Content Include="Views\Product\ProductNotFound.cshtml" />
     <Content Include="Views\Category\CategoryNotFound.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\_CartItemsPartials.cshtml" />
     <Content Include="Views\ShoppingCart\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>

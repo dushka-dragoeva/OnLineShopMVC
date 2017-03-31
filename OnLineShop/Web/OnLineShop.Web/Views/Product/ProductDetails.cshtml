@@ -7,9 +7,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (@Html.BeginForm("OrderNow", "ShoppingCart", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id }))
+@using (@Html.BeginForm("OrderNow", "ShoppingCart", new { id = @Model.Id }, FormMethod.Post, new { @class = "form-group", id = @Model.Id , role="form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true,"", new { @class = "text-danger" })
     <div class="row" style="border:1px, solid, black">
         <div class="col-md-12"><h3 class="text-center">@Model.Name</h3></div>
     </div>
@@ -46,10 +47,10 @@
                 </div>
                 <div class="col-md-6">
                     <label for="sizes-drop-down">Размери: </label>
-                    <select id="sizes-drop-down" class="form-control" name="Size">
+                    <select id="sizes-drop-down" class="form-control"  name="Size">
                         @foreach (var size in @Model.Sizes)
                 {
-                            <option value="@size.Value", name=@size.Value>@size.Value</option>
+                            <option value="@size.Id">@size.Value</option>
                         }
                     </select>
                 </div>
@@ -66,7 +67,8 @@
     </div>
 }
 
-@section scripts
-{
-    @Scripts.Render("~bundles/jqueryval")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
+
+

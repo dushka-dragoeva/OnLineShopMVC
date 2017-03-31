@@ -1,13 +1,10 @@
 ﻿using Bytes2you.Validation;
 using OnLineShop.Data.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnLineShop.Data
 {
@@ -60,6 +57,16 @@ namespace OnLineShop.Data
         public T GetById(int? id)
         {
             return this.DbSet.Find(id);
+        }
+
+        public T GetById(string id)
+        {
+            return this.DbSet.Find(id);
+        }
+
+        public T GetByUserName(string userName)
+        {
+            return this.DbSet.Find(userName);
         }
 
         public void Add(T entity)

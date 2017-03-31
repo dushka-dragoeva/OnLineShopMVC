@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+@model OnLineShop.Web.Models.ShoppingCart.ContactInfoViewModel
+@using OnLineShop.Web.Infrastructure.Helpers
+
+
+
+<div class="row">
+    <h4>Вашата Поръчка</h4>
+    @Html.Partial("_CartItemsPartials", Model.OrderDetails)
+
+    <h4>Адрес за доставка</h4>
+    @using (@Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post, new { @class = "form-group" , role="form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.EditorFor(m => m.FirstName, new { name = "FirstName" })
+            @Html.EditorFor(m => m.LastName)
+            @Html.EditorFor(m => m.PhoneNumber)
+            @Html.EditorFor(m => m.AddressLine)
+            @Html.EditorFor(m => m.City)
+            @Html.EditorFor(m => m.Area)
+            @Html.EditorFor(m => m.PostCode)
+            <br />
+            @Html.Submit(new { value = "Финализрай поръчката" })
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@*<h2>Благодаря за Вашата поръчка</h2>
+
+    <div>
+        <p>Натиснете @Html.ActionLink("Тук", "Index", "Home") за да продължите</p>
+    </div>*@
+

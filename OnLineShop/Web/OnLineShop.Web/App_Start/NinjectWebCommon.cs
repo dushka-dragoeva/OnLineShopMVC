@@ -66,7 +66,7 @@ namespace OnLineShop.Web.App_Start
         {
             kernel.Load(new DataNinjectModule());
             kernel.Load(new ServiceNingectModule());
-            kernel.Bind<IOnLineShopDbContextSaveChanges>().To<OnLineShopDbContext>().InRequestScope();
+           // kernel.Bind<IOnLineShopDbContextSaveChanges>().To<OnLineShopDbContext>().InRequestScope();
         }        
     }
 }

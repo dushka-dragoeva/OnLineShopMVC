@@ -1,5 +1,4 @@
-﻿using OnLineShop.Web.Models.OrderDetail;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OnLineShop.Web.Models.ShoppingCart
 {

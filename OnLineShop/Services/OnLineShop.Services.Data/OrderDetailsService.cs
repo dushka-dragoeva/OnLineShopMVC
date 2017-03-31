@@ -35,23 +35,23 @@ namespace OnLineShop.Services.Data
             return id.HasValue ? this.orderDetailsSetWrapper.GetById(id) : null;
         }
 
-        public int Delete(int? id)
-        {
-            Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
+        //public int Delete(int? id)
+        //{
+        //    Guard.WhenArgument(id, nameof(id)).IsNull().Throw();
 
-            var entity = this.GetById(id);
-            entity.IsDeleted = true;
-            this.orderDetailsSetWrapper.Update(entity);
-            return this.dbContext.SaveChanges();
-        }
+        //    var entity = this.GetById(id);
+        //    entity.IsDeleted = true;
+        //    this.orderDetailsSetWrapper.Update(entity);
+        //    return this.dbContext.SaveChanges();
+        //}
 
-        public IEnumerable<OrderDetail> GetAll()
-        {
-            return this.orderDetailsSetWrapper
-                 .All()
-                 .Where(c => c.IsDeleted == false)
-                 .ToList();
-        }
+        //public IEnumerable<OrderDetail> GetAll()
+        //{
+        //    return this.orderDetailsSetWrapper
+        //         .All()
+        //         .Where(c => c.IsDeleted == false)
+        //         .ToList();
+        //}
 
         public int Update(OrderDetail orderDetails)
         {

@@ -1,4 +1,4 @@
-﻿@using OnLineShop.Web.Models.OrderDetail
+﻿@using OnLineShop.Web.Models.ShoppingCart
 @model List<OrderDetailViewModel>
 
 @{
@@ -8,59 +8,13 @@
 
 
 <h2>Продукти във Вашата Количка: @ViewBag.Count</h2>
-<table class="table table-responsive">
-
-
-    <tr>
-        <th hidden="hidden">Id</th>
-        <th>Артикул</th>
-        <th>Описание</th>
-        <th>Единична Цена</th>
-        <th>Количество</th>
-        <th>Стойност</th>
-        <th>Изтрий</th>
-    </tr>
-    @{
-
-        decimal? sum = 0m;
-        int index = 0;
-
-        foreach (var item in (List<OrderDetailViewModel>)Session["cart"])
-        {
-            <tr>
-                <td hidden="hidden" id=@index>@item.Product.Id</td>
-                <td><img src="@Url.Content(item.Product.PictureUrl)" class="img-responsive" width="50" /></td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>@item.Product.Name</td>
-                        </tr>
-                        <tr>
-                            <td>Размер: @item.Size</td>
-                        </tr>
-                        <tr>
-                            <td>Арт. №: @item.Product.ModelNumber</td>
-                        </tr>
-                    </table>
-                </td>
-                <td>@item.Product.Price</td>
-                <td>@item.Quantity</td>
-                <td>@(item.Product.Price * item.Quantity)лв.</td>
-                <td>@Html.ActionLink("Изтий", "Delete", "ShoppingCart", new { id = @item.Product.Id,index=@index }, null)</td>
-            </tr>
-            sum += item.Product.Price * item.Quantity;
-            index++;
-        }
-
-        <tr>
-            <td colspan="4" class="text-right">Обща Стойност:</td>
-            <td> @sum лв.</td>
-            <td></td>
-        </tr>
-    }
-</table>
-
+<hr />
 <br />
+
+
+@Html.Partial("_CartItemsPartials", Model)
+
+
 @Html.ActionLink("Изпрати поръчката", "CheckOut")
 @Html.ActionLink("Продължи с пазаруването", "Index", "Home")
 

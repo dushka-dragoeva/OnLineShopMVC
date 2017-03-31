@@ -1,7 +1,7 @@
 ﻿using OnLineShop.Web.Models.Products;
 using OnLineShop.Web.Models.Sizes;
 
-namespace OnLineShop.Web.Models.OrderDetail
+namespace OnLineShop.Web.Models.ShoppingCart
 {
     public class OrderDetailViewModel
     {
@@ -11,7 +11,7 @@ namespace OnLineShop.Web.Models.OrderDetail
         {
         }
 
-        public OrderDetailViewModel(ProductDetailsViewModel product, int quantity, string size)
+        public OrderDetailViewModel(ProductDetailsViewModel product, int quantity, SizeViewModel size)
         {
             this.Product = product;
             this.Quantity = quantity;
@@ -22,6 +22,7 @@ namespace OnLineShop.Web.Models.OrderDetail
 
         public int Quantity { get; private set; }
 
-        public string Size{ get; set; }
+        public SizeViewModel Size { get; private set; }
+
     }
 }

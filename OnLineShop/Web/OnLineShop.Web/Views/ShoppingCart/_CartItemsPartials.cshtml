@@ -1,0 +1,46 @@
+﻿
+@using OnLineShop.Web.Models.ShoppingCart
+@model List<OrderDetailViewModel>
+
+<table class="table table-responsive">
+    <tr>
+        <th hidden="hidden">Id</th>
+        <th>Артикул</th>
+        <th>Описание</th>
+        <th>Единична Цена</th>
+        <th>Количество</th>
+        <th>Стойност</th>
+        <th>Изтрий</th>
+    </tr>
+    @{
+
+        decimal? sum = 0m;
+        int index = 0;
+
+        foreach (var item in (List<OrderDetailViewModel>)Session["cart"])
+        {
+            <tr>
+                <td hidden="hidden" id=@index>@item.Product.Id</td>
+                <td><img src="@Url.Content(item.Product.PictureUrl)" class="img-responsive" width="40" /></td>
+                <td>
+                   <div>@item.Product.Name</div>
+                    <div><small>Арт. №: @item.Product.ModelNumber</small></div>
+                    <div>Размер: @item.Size.Value</div>
+                      
+                </td>
+                <td>@item.Product.Price лв.</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity)лв.</td>
+                <td>@Html.ActionLink("Изтий", "Delete", "ShoppingCart", new { id = @item.Product.Id, index = @index }, null)</td>
+            </tr>
+            sum += item.Product.Price * item.Quantity;
+            index++;
+        }
+
+        <tr>
+            <td colspan="4" class="text-right">Обща Стойност:</td>
+            <td> @sum лв.</td>
+            <td></td>
+        </tr>
+    }
+</table>
