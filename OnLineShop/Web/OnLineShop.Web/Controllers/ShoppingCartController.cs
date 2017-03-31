@@ -126,7 +126,6 @@ namespace OnLineShop.Web.Controllers
                 shippingInfo.OrderDetails = this.CartItems;
                 return View("CheckOut", shippingInfo);
             }
-
         }
 
         [HttpPost]

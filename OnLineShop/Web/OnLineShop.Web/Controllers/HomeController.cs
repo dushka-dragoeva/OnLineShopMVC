@@ -1,17 +1,12 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-
-using Bytes2you.Validation;
-
-using OnLineShop.Common.Constants;
-using OnLineShop.Services.Data.Contracts;
-using OnLineShop.Web.Models.Products;
-using OnLineShop.Web.Models.Categories;
+﻿using System.Web.Mvc;
 
 namespace OnLineShop.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private const int CashDuration = 15 * 60;
+
+        [OutputCache(Duration = CashDuration, VaryByParam = "none")]
         public ActionResult Index()
         {
             return View();

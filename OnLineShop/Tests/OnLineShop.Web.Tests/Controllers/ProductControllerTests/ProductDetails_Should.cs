@@ -71,9 +71,9 @@ namespace OnLineShop.Web.Tests.Controllers.ProductControllerTests
             ProductController productController = new ProductController(productServiceMock.Object);
 
             // Act & Assert
-
-
-
+            productController
+                 .WithCallTo(c => c.ProductDetails(ProductId))
+                     .ShouldRenderView("ProductNotFound");
         }
 
         [Test]
