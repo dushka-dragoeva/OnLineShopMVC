@@ -11,10 +11,13 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true,"", new { @class = "text-danger" })
+
     <div class="row" style="border:1px, solid, black">
         <div class="col-md-12"><h3 class="text-center">@Model.Name</h3></div>
     </div>
-
+    <br />
+    <br />
+    <br />
     <div class="row">
         <div class="col-md-5">
             <img id="image-details" src="@Url.Content(@Model.PictureUrl)" class="img-responsive" alt="pic" style="width:400px" />

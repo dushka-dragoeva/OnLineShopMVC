@@ -1,42 +1,38 @@
 ﻿@model IEnumerable<OnLineShop.Web.Models.Products.ProductsViewModel>
-<div class="row">
-    <ul>
-        @foreach (var item in @Model)
-        {
-            <li class="list-inline list-unstyled">
-
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            <div class="panel panel-info" style="padding-left:15px; padding-right:15px">
-
-                                <div class="row panel-heading">
-                                    <div class="panel-title text-center"><strong>@item.Name</strong></div>
-                                    <div class="row">
-                                        <div class="col-md-6">@item.BrandName</div>
-                                        <div class="col-md-6 text-right"> @item.CategoryName</div>
-                                    </div>
 
 
-                                </div>
-                                <a href="@Url.Action("ProductDetails", "Product", new {id=item.Id})">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <img src="@Url.Content(item.PictureUrl)" class="img-responsive" width="200" />
-                                        </div>
-
-                                    </div>
-                                </a>
-                                <div class="row panel-footer ">
-
-                                    <div class="col-lg-6 badge text-left">@item.Price лв.</div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                
+<div class="content-wrap centering">
+    <div class="main-title spacing-bt">
+        <ul class="grid effect-8" id="grid">
+            <li>
+                <h1>@ViewBag.Message</h1>
             </li>
-        }
-    </ul>
-</div>
+        </ul>
+    </div>
+    <div class="featured-items">
+        <ul class="grid effect-2" id="grid">
 
+            @foreach (var item in @Model)
+            {
+                <li>
+                    <div class="item">
+                        <h5>@item.Name</h5>
+                
+                        <div class="grow">
+                            <a href="@Url.Action("ProductDetails", "Product", new {id=item.Id})">
+                                <img src="@Url.Content(item.PictureUrl)" class="img-responsive" width="200" />
+                            </a>
+                        </div>
+                          
+                        
+                        <div class="badge text-right" style="font-size:14px">@item.Price лв.</div>
+                        <p class="text-right">@item.BrandName</p>
+                    </div>
+                </li>
+            }
+
+        </ul>
+
+    </div>
+</div>
+<div class="ruler"></div>

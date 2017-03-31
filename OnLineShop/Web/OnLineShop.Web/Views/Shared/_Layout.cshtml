@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,49 +8,76 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @Scripts.Render("~/bundles/html5shiv")
+    @Scripts.Render("~/bundles/respond")
+    @Scripts.Render("~/bundles/modernizrcustom")
+
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/" style="height:100%">
-                    <img alt="Brand" src="~/Content/Images/logo.jpg">
-                </a>
+    <div class="container page-styling">
+        <div class="header-wrapper">
+            <div class="site-name">
+                <img alt="Brand" src="/Content/Images/643.jpg">
+                <h1>Lucy Paris</h1>
+            </div>
+            <div class="menu">
+                <div class="navbar">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @RenderSection("navigation", required: false)
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Начало", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Условия", "About", "Home")</li>
+                            <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
 
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                        @Html.Action("CategoriesNavigation", "Category")
+
+                    </div>
                 </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" >
-                    <li>@Html.ActionLink("Начало", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Доставка и Плащане", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
-                    
-                </ul>
-                @Html.Partial("_LoginPartial")
+            </div>
 
+            <div class="container content-wrap">
+
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Dushka Dragoeva MVC On-Line Shop Template Telerik Course Project</p>
+                    <p><a href="https://github.com/dushka-dragoeva/OnLineShopMVC" class="btn btn-info" role="button">@@Github</a></p>
+                </footer>
             </div>
         </div>
     </div>
-
-
-    <div class="container body-content">
-       
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Dushka Dragoeva MVC On-Line Shop Template Telerik Course Project</p>
-            <p><a href="https://github.com/dushka-dragoeva/OnLineShopMVC" class="btn btn-info" role="button">@@Github</a></p>
-        </footer>
-    </div>
-
     @Scripts.Render("~/bundles/jquery")
 
     @Scripts.Render("~/bundles/bootstrap")
 
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/masonry")
+
+    @Scripts.Render("~/bundles/imagesloaded")
+
+    @Scripts.Render("~/bundles/classie")
+
+    @Scripts.Render("~/bundles/AnimOnScroll")
+
     @RenderSection("scripts", required: false)
+
+    <script>
+        new AnimOnScroll(document.getElementById('grid'), {
+            minDuration: 0.4,
+            maxDuration: 0.7,
+            viewportFactor: 0.2
+        });
+    </script>
+
 </body>
 </html>

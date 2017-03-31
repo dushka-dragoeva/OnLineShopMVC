@@ -43,23 +43,10 @@ namespace OnLineShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult CategoriesNavigation()
         {
-            var categories = categoryService.GetAll().ToList();
                          var navigationCategories = this.categoryService.GetAll()
                                     .Select(c => new CategoriesNavigationViewModel(c)).ToList();
 
                 return PartialView("_CategoriesPartial", navigationCategories);
         }
-
-        //[ChildActionOnly]
-        //public ActionResult ProductList(int? id)
-        //{
-        //    Category category = this.categoryService.GetById(id);
-
-        //    CategoryDetailsViewModel categoryDetails = new CategoryDetailsViewModel(category);
-
-        //    List<ProductsViewModel> products = categoryDetails.Products.ToList();
-
-        //    return PartialView(PartialConstants.ProductsPartial, products);
-        //}
     }
 }

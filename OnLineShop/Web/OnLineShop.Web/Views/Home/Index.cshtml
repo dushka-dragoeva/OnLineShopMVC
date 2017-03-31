@@ -1,10 +1,54 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home ";
+
 }
 
-@using OnLineShop.Common.Constants
-<div id="background-navigation" class="row"></div>
-@Html.Action("CategoriesNavigation", "Category")
-<h2 class="text-center">Най-нови продукти </h2>
+@*@Html.Action("CategoriesNavigation", "Category")*@
+<div class="banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="Content/Images/banner-img.jpg" alt="" class="">
+
+                <div class="carousel-caption">
+                    <i class="fw-icon-pencil"></i>
+                    <h2>Corem ipsum</h2>
+                    <h1>sit amet vivamus</h1>
+                    <a href="#" class="btn"> more info</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Content/Images/banner-img.jpg" alt="" class="">
+                <div class="carousel-caption">
+                    <i class="fw-icon-pencil"></i>
+                    <h2>Corem ipsum</h2>
+                    <h1>sit amet vivamus</h1>
+                    <a href="#" class="btn"> more info</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Content/Images/banner-img.jpg" alt="" class="">
+                <div class="carousel-caption">
+                    <i class="fw-icon-pencil"></i>
+                    <h2>Corem ipsum</h2>
+                    <h1>sit amet vivamus</h1>
+                    <a href="#" class="btn"> more info</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+        
+
 @Html.Action("LatestProducts", "Product");
+
 

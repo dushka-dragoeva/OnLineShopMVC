@@ -7,7 +7,7 @@
 @model OnLineShop.Web.Models.Categories.CategoryDetailsViewModel
     @using OnLineShop.Web.Models.Products
 
-@Html.Action("CategoriesNavigation")
+@*@Html.Action("CategoriesNavigation")*@
 
 <div style="padding:20px"><h2 id=@Model.Id class="text-center">@Model.Name</h2></div>
 @Html.Partial("_ProductsPartial", Model.Products)

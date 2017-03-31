@@ -10,7 +10,9 @@
 
 <div class="row">
     <h4>Вашата Поръчка</h4>
-    @Html.Partial("_CartItemsPartials", Model.OrderDetails)
+    <br />
+    <br />
+    @Html.Partial("_CartItemsPartials")
 
     <h4>Адрес за доставка</h4>
     @using (@Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post, new { @class = "form-group" , role="form", enctype = "multipart/form-data" }))

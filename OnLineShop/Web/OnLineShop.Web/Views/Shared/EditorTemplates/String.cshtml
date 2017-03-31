@@ -17,10 +17,10 @@
     }
 }
 
-<div class="row">
+<div class="row form-control-static">
     @Html.LabelFor(m => m)
     <br />
-    @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
-    @Html.TextBoxFor(m => m, new { placeholder = ViewData.ModelMetadata.Watermark, @class = @classToUse })
-</div>
+    @Html.ValidationMessageFor(model => model, "     ", new { @class = "text -danger" })
+    @Html.TextBoxFor(m => m, new { placeholder = ViewData.ModelMetadata.Watermark, @class = "form - control" })
+</div >
 <br />

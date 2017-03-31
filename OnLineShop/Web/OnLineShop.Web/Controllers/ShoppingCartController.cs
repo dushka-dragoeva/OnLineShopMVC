@@ -118,13 +118,15 @@ namespace OnLineShop.Web.Controllers
 
             if (userShippingInfo == null)
             {
+                var shippingInfo = new ContactInfoViewModel();
+                shippingInfo.OrderDetails = this.CartItems;
                 return View("CheckOut");
             }
             else
             {
                 var shippingInfo = new ContactInfoViewModel(userShippingInfo);
                 shippingInfo.OrderDetails = this.CartItems;
-                return View("CheckOut", shippingInfo);
+                return View("CheckOut");
             }
         }
 

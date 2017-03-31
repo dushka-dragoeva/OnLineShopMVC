@@ -40,7 +40,7 @@ namespace OnLineShop.Services.Data
                 .Where(p => p.IsDeleted == false)
                  .Include(p => p.Brand)
                  .Include(p => p.Category)
-                 .Take(12)
+                 .Take(9)
                  .ToList();
         }
 

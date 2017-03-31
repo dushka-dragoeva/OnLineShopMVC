@@ -6,9 +6,10 @@ namespace OnLineShop.Web.Controllers
     {
         private const int CashDuration = 15 * 60;
 
-        [OutputCache(Duration = CashDuration, VaryByParam = "none")]
+       // [OutputCache(Duration = CashDuration, VaryByParam = "none")]
         public ActionResult Index()
         {
+            ViewBag.Message = "Най-новиte продукти";
             return View();
         }
 
